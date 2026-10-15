@@ -3,554 +3,514 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ishvara Tech Consulting — Cinematic scroll-driven storytelling experience. We build what comes next.">
-  <title>Ishvara Tech Consulting</title>
+  <title>Ishvara Tech Consulting — We Build What Comes Next</title>
+  <meta name="description" content="Ishvara Tech Consulting transforms complex challenges into intelligent digital products, AI-powered systems, and scalable technology for high-impact enterprises.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/ishvara-logo.png">
 
-  <!-- Editorial Serif (Instrument Serif) & Refined Minimal Sans (Inter) -->
+  <!-- Google Fonts: Instrument Serif (Editorial Display), Inter (Clean Sans), Space Grotesk (Technical Readouts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
   
-  <link rel="icon" type="image/png" href="Assets/ishvara-logo.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Minimal Brand Header -->
-  <header class="site-header" id="siteHeader">
-    <div class="header-inner">
-      <a href="#" class="brand-logo" aria-label="Ishvara Tech Consulting">
-        <img src="Assets/ishvara-logo.png" alt="Ishvara Tech Consulting" class="brand-logo-img" />
-      </a>
-      <div class="header-meta">
-        <span class="meta-tag">TECH CONSULTING // 2.0</span>
+  <!-- =========================================================================
+       ASSET PRELOADER
+       ========================================================================= -->
+  <div class="cinematic-preloader" id="cinematicPreloader">
+    <div class="preloader-inner">
+      <img src="assets/ishvara-logo.png" alt="Ishvara Tech Consulting" class="preloader-logo">
+      <div class="preloader-track">
+        <div class="preloader-bar" id="preloaderBar"></div>
       </div>
+      <span class="preloader-text" id="preloaderText">INITIALIZING CINEMATIC SEQUENCE...</span>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       NAVIGATION BAR (EDITORIAL, MINIMAL, GLASS HAIRLINE)
+       ========================================================================= -->
+  <header class="site-nav" id="siteNav">
+    <a href="#stage-hero" class="nav-brand" aria-label="Ishvara Tech Consulting">
+      <img src="assets/ishvara-logo.png" alt="Ishvara Tech Consulting" class="nav-brand-logo">
+    </a>
+
+    <nav class="nav-links-wrap" aria-label="Primary Navigation">
+      <ul class="nav-links">
+        <li><a href="#stage-philosophy" class="nav-link">Philosophy</a></li>
+        <li><a href="#stage-capabilities" class="nav-link">Capabilities</a></li>
+        <li><a href="#stage-products" class="nav-link">Products</a></li>
+        <li><a href="#stage-approach" class="nav-link">Approach</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <!-- Top-Right Soothing Sound Toggle Button -->
+      <button class="sound-toggle-btn" id="soundToggleBtn" aria-label="Toggle soothing ambient music" title="Toggle soothing music">
+        <span class="sound-icon-wrap" aria-hidden="true">
+          <span class="sound-wave-bar bar-1"></span>
+          <span class="sound-wave-bar bar-2"></span>
+          <span class="sound-wave-bar bar-3"></span>
+          <span class="sound-wave-bar bar-4"></span>
+        </span>
+        <span class="sound-status-text" id="soundStatusText">Sound Off</span>
+      </button>
+
+      <button class="nav-cta-btn open-modal-trigger" aria-label="Start a conversation">
+        <span>Start a Conversation</span>
+        <span class="arrow-glyph">↗</span>
+      </button>
     </div>
   </header>
 
-  <main>
-    <!-- ====================================================================
-         SECTION 1: Genesis Story (Chrome Hands, Ishvara "I" & Circuit Emergence)
-         ==================================================================== -->
-    <section class="hero-scroll-container" id="heroContainer" aria-label="Section 1: Genesis Story">
-      <div class="hero-sticky-stage" id="heroStage">
-        
-        <!-- Canvas for Section 1 Scroll Image Sequence (179 frames) -->
-        <canvas id="heroCanvas" class="hero-canvas"></canvas>
+  <!-- =========================================================================
+       PINNED FULLSCREEN CANVAS VIEWPORT (211 FRAMES)
+       ========================================================================= -->
+  <div class="cinematic-viewport">
+    <canvas id="cinematicCanvas"></canvas>
+    <!-- Cinematic subtle vignette and gradient overlays -->
+    <div class="cinematic-vignette" aria-hidden="true"></div>
+    <div class="cinematic-gradient-overlay" aria-hidden="true"></div>
+  </div>
 
-        <!-- Ambient Atmospheric Depth Layer -->
-        <div class="stage-ambient-layer" aria-hidden="true"></div>
+  <!-- =========================================================================
+       EDITORIAL SCROLL HUD
+       ========================================================================= -->
+  <aside class="scroll-hud" aria-label="Scroll Progress Indicator">
+    <div class="hud-pips-group">
+      <span class="hud-pip active" data-stage="0"></span>
+      <span class="hud-pip" data-stage="1"></span>
+      <span class="hud-pip" data-stage="2"></span>
+      <span class="hud-pip" data-stage="3"></span>
+      <span class="hud-pip" data-stage="4"></span>
+      <span class="hud-pip" data-stage="5"></span>
+    </div>
+    <span class="hud-frame-readout" id="hudFrameReadout">001 // 211</span>
+  </aside>
 
-        <!-- Scroll-Synchronized Editorial Statements -->
-        <div class="statements-overlay" aria-live="polite">
-          
-          <!-- Stage 0: Initial View -->
-          <div class="statement-item" id="s1-stage-0" data-stage="0">
-            <h1 class="editorial-headline">We build what <em>comes next.</em></h1>
-            <p class="editorial-subline">Pioneering the intersection of intelligence and design.</p>
-          </div>
+  <!-- =========================================================================
+       SCROLL-LINKED STORYTELLING STAGES
+       ========================================================================= -->
 
-          <!-- Stage 1: The Hands Approach -->
-          <div class="statement-item" id="s1-stage-1" data-stage="1">
-            <h2 class="editorial-headline">Bold by <em>vision.</em></h2>
-            <p class="editorial-subline">Architecting transformative technology with uncompromising ambition.</p>
-          </div>
-
-          <!-- Stage 2: Camera Enters the Ring -->
-          <div class="statement-item" id="s1-stage-2" data-stage="2">
-            <h2 class="editorial-headline">Timeless by <em>design.</em></h2>
-            <p class="editorial-subline">Enduring principles crafted for an evolving world.</p>
-          </div>
-
-          <!-- Stage 3: Circuit Network Emerges -->
-          <div class="statement-item" id="s1-stage-3" data-stage="3">
-            <h2 class="editorial-headline">Intelligence in <em>motion.</em></h2>
-            <p class="editorial-subline">Dynamic systems that learn, adapt, and accelerate forward.</p>
-          </div>
-
-          <!-- Stage 4: Circuit Lines Move Upward (Culmination) -->
-          <div class="statement-item" id="s1-stage-4" data-stage="4">
-            <h2 class="editorial-headline">Ideas become <em>possibilities.</em></h2>
-            <p class="editorial-subline">Unlocking new frontiers through purposeful engineering.</p>
-          </div>
-
-        </div>
-
-        <!-- Lower-Right Contextual Stage Tracker -->
-        <div class="stage-tracker" id="s1Tracker">
-          <span class="tracker-counter">SCENE 01</span>
-          <span class="tracker-label" id="s1TrackerLabel">GENESIS PROTOCOL</span>
-        </div>
-
-        <!-- Initial Scroll Cue -->
-        <div class="scroll-cue" id="scrollCue">
-          <span class="scroll-cue-text">Scroll to explore</span>
-          <div class="scroll-cue-line">
-            <div class="scroll-cue-dot"></div>
-          </div>
-        </div>
-
-        <!-- Frame Loading Indicator -->
-        <div class="loading-overlay" id="loadingOverlay">
-          <div class="loader-content">
-            <div class="loader-ring"></div>
-            <div class="loader-label">INITIALIZING SEQUENCE</div>
-          </div>
-        </div>
-
+  <!-- STAGE 1 — HERO SECTION -->
+  <section class="story-stage active" id="stage-hero" aria-label="Hero">
+    <div class="editorial-container hero-layout">
+      
+      <!-- Top Subtle Glass Tagline -->
+      <div class="hero-top-meta">
+        <span class="editorial-eyebrow">CREATIVE TECHNOLOGY STUDIO</span>
+        <span class="meta-divider">—</span>
+        <span class="meta-sub">AI &amp; DIGITAL PRODUCT ENGINEERING</span>
       </div>
-    </section>
 
-    <!-- ====================================================================
-         SECTION 2: Neural Architecture (Floating Chip & Motherboard Monolith)
-         ==================================================================== -->
-    <section class="section2-scroll-container" id="section2Container" aria-label="Section 2: Cognitive Architecture">
-      <div class="section2-sticky-stage" id="section2Stage">
+      <!-- Center-Left Large Editorial Headline -->
+      <div class="hero-center-content">
+        <h1 class="editorial-hero-title">
+          We build what<br>
+          <em>comes next.</em>
+        </h1>
         
-        <!-- Canvas for Section 2 Scroll Image Sequence (169 frames) -->
-        <canvas id="section2Canvas" class="section2-canvas"></canvas>
+        <p class="editorial-hero-lead">
+          We turn complex challenges into intelligent products and meaningful digital experiences.
+        </p>
 
-        <!-- Ambient Atmospheric Vignette -->
-        <div class="section2-ambient-vignette" aria-hidden="true"></div>
-
-        <!-- Scroll-Synchronized Editorial Statements -->
-        <div class="section2-overlay" aria-live="polite">
-          
-          <!-- Stage 5: Blue Chip Appears Among Clouds -->
-          <div class="section2-statement-item" id="s2-stage-5" data-stage="5">
-            <h2 class="editorial-headline">Complexity finds <em>clarity.</em></h2>
-            <p class="editorial-subline">A cognitive core suspended in atmospheric space.</p>
-          </div>
-
-          <!-- Stage 6: The Chip Descends -->
-          <div class="section2-statement-item" id="s2-stage-6" data-stage="6">
-            <h2 class="editorial-headline">Every connection has a <em>purpose.</em></h2>
-            <p class="editorial-subline">Guided trajectory toward the foundational substrate.</p>
-          </div>
-
-          <!-- Stage 7: The Chip Locks Into Place -->
-          <div class="section2-statement-item" id="s2-stage-7" data-stage="7">
-            <h2 class="editorial-headline">Everything comes <em>together.</em></h2>
-            <p class="editorial-subline">Architectural unity achieved as conduits ignite with power.</p>
-          </div>
-
-          <!-- Stage 8: The Glass Card Rises (Culmination) -->
-          <div class="section2-statement-item" id="s2-stage-8" data-stage="8">
-            <h2 class="editorial-headline">Intelligence takes <em>shape.</em></h2>
-            <p class="editorial-subline">A monolithic structure rises at the zenith of the system.</p>
-          </div>
-
+        <!-- Two Restrained Text Links -->
+        <div class="editorial-hero-actions">
+          <a href="#stage-products" class="editorial-link-btn primary-link">
+            <span>Explore our work</span>
+            <span class="link-arrow">↗</span>
+          </a>
+          <button class="editorial-link-btn secondary-link open-modal-trigger">
+            <span>Start a conversation</span>
+            <span class="link-arrow">↗</span>
+          </button>
         </div>
-
-        <!-- Lower-Right Contextual Stage Tracker -->
-        <div class="stage-tracker" id="s2Tracker">
-          <span class="tracker-counter">SCENE 02</span>
-          <span class="tracker-label" id="s2TrackerLabel">COGNITIVE CORE</span>
-        </div>
-
       </div>
-    </section>
 
-    <!-- ====================================================================
-         SECTION 3: 3D Rotating Feature Carousel (9-Stage Storyboard Orbit)
-         ==================================================================== -->
-    <section class="section3-scroll-container" id="section3Container" aria-label="Section 3: Feature Architecture Showcase">
-      <div class="section3-sticky-stage" id="section3Stage">
+      <!-- Bottom Bar: Left Editorial Note & Right Circular "Discover" Element -->
+      <div class="hero-bottom-bar">
+        <div class="hero-editorial-badge">
+          <span class="badge-index">01 // PROLOGUE</span>
+          <p class="badge-copy">
+            A quiet synthesis of strategic intuition, advanced intelligence, and precision engineering.
+          </p>
+        </div>
+
+        <!-- Delicately styled Circular Glass Prompt inspired by Reference 2 -->
+        <a href="#stage-philosophy" class="hero-discover-circle" aria-label="Scroll to discover">
+          <div class="discover-inner">
+            <span class="discover-text">Discover</span>
+            <span class="discover-arrow">↓</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STAGE 2 — PHILOSOPHY SECTION -->
+  <section class="story-stage" id="stage-philosophy" aria-label="Our Philosophy">
+    <div class="editorial-container">
+      <div class="editorial-glass-panel philosophy-panel">
         
-        <!-- Static Cloud & Processor Substrate (Clean, completely fixed background) -->
-        <div class="section3-static-bg" aria-hidden="true">
-          <img src="Assets/New%20folder/ezgif-frame-165.jpg" alt="Motherboard Processor Substrate" class="section3-bg-image" draggable="false" />
-          <div class="section3-ambient-vignette"></div>
+        <div class="panel-header-row">
+          <span class="editorial-eyebrow">PHILOSOPHY</span>
+          <span class="panel-numeric">02 / 06</span>
         </div>
 
-        <!-- 3D Orbit Viewport & Stage -->
-        <div class="orbit-3d-viewport" id="orbitViewport">
-          <div class="orbit-stage-container" id="orbitContainer">
-            
-            <!-- Card 01: AI Products -->
-            <article class="orbit-card card-01" id="card-0" data-card="0" tabindex="0" role="button" aria-label="Open AI Products: Intelligence, Made Useful">
-              <div class="card-glass-outer">
-                <div class="card-glass-body">
-                  <div class="card-top-notch" aria-hidden="true"></div>
-                  
-                  <div class="card-layout-grid">
-                    <div class="card-info-col">
-                      <div class="card-header-row">
-                        <span class="card-category-tag">AI PRODUCTS</span>
-                      </div>
-                      
-                      <h3 class="card-headline">Intelligence,<br><em>Made Useful.</em></h3>
-                      
-                      <p class="card-description">AI-powered products designed to transform complex workflows into intuitive digital experiences.</p>
-                      
-                      <div class="card-action-row">
-                        <div class="card-circle-arrow" aria-hidden="true">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
+        <h2 class="editorial-section-title">
+          The future doesn't<br>
+          <em>build itself.</em>
+        </h2>
 
-                    <div class="card-visual-col">
-                      <div class="card-svg-container">
-                        <!-- Cyan Neural Network Constellation SVG -->
-                        <svg class="feature-diagram-svg svg-neural" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                          <defs>
-                            <filter id="neuralGlow" x="-20%" y="-20%" width="140%" height="140%">
-                              <feGaussianBlur stdDeviation="3.5" result="blur" />
-                              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                            </filter>
-                          </defs>
-                          <!-- Radial Network Conduits -->
-                          <line x1="110" y1="110" x2="110" y2="38" stroke="rgba(0, 229, 255, 0.6)" stroke-width="1.2"/>
-                          <line x1="110" y1="110" x2="176" y2="76" stroke="rgba(0, 229, 255, 0.6)" stroke-width="1.2"/>
-                          <line x1="110" y1="110" x2="176" y2="146" stroke="rgba(0, 229, 255, 0.6)" stroke-width="1.2"/>
-                          <line x1="110" y1="110" x2="110" y2="182" stroke="rgba(0, 229, 255, 0.6)" stroke-width="1.2"/>
-                          <line x1="110" y1="110" x2="44" y2="146" stroke="rgba(0, 229, 255, 0.6)" stroke-width="1.2"/>
-                          <line x1="110" y1="110" x2="44" y2="76" stroke="rgba(0, 229, 255, 0.6)" stroke-width="1.2"/>
-                          
-                          <!-- Outer Geometric Contour & Cross-links -->
-                          <polygon points="110,38 176,76 176,146 110,182 44,146 44,76" stroke="rgba(0, 229, 255, 0.35)" stroke-width="1" stroke-dasharray="3 3"/>
-                          <line x1="44" y1="76" x2="176" y2="76" stroke="rgba(0, 229, 255, 0.2)" stroke-width="0.8"/>
-                          <line x1="44" y1="146" x2="176" y2="146" stroke="rgba(0, 229, 255, 0.2)" stroke-width="0.8"/>
-                          
-                          <!-- Secondary Synaptic Intermediaries -->
-                          <line x1="78" y1="92" x2="110" y2="110" stroke="rgba(0, 229, 255, 0.45)" stroke-width="1"/>
-                          <line x1="142" y1="128" x2="110" y2="110" stroke="rgba(0, 229, 255, 0.45)" stroke-width="1"/>
-                          <circle cx="78" cy="92" r="3.5" fill="#00e5ff" opacity="0.9"/>
-                          <circle cx="142" cy="128" r="3.5" fill="#00e5ff" opacity="0.9"/>
-
-                          <!-- Pulse Field Rings -->
-                          <circle cx="110" cy="110" r="30" stroke="rgba(0, 229, 255, 0.32)" stroke-width="1" stroke-dasharray="4 4"/>
-                          <circle cx="110" cy="110" r="50" stroke="rgba(0, 229, 255, 0.18)" stroke-width="0.8"/>
-
-                          <!-- Peripheral Nodes -->
-                          <circle cx="110" cy="38" r="5.5" fill="#00e5ff" filter="url(#neuralGlow)"/>
-                          <circle cx="110" cy="38" r="9" stroke="rgba(0, 229, 255, 0.6)" stroke-width="1"/>
-                          
-                          <circle cx="176" cy="76" r="5.5" fill="#00e5ff" filter="url(#neuralGlow)"/>
-                          <circle cx="176" cy="76" r="9" stroke="rgba(0, 229, 255, 0.6)" stroke-width="1"/>
-
-                          <circle cx="176" cy="146" r="5.5" fill="#00e5ff" filter="url(#neuralGlow)"/>
-                          <circle cx="176" cy="146" r="9" stroke="rgba(0, 229, 255, 0.6)" stroke-width="1"/>
-
-                          <circle cx="110" cy="182" r="5.5" fill="#00e5ff" filter="url(#neuralGlow)"/>
-                          <circle cx="110" cy="182" r="9" stroke="rgba(0, 229, 255, 0.6)" stroke-width="1"/>
-
-                          <circle cx="44" cy="146" r="5.5" fill="#00e5ff" filter="url(#neuralGlow)"/>
-                          <circle cx="44" cy="146" r="9" stroke="rgba(0, 229, 255, 0.6)" stroke-width="1"/>
-
-                          <circle cx="44" cy="76" r="5.5" fill="#00e5ff" filter="url(#neuralGlow)"/>
-                          <circle cx="44" cy="76" r="9" stroke="rgba(0, 229, 255, 0.6)" stroke-width="1"/>
-
-                          <!-- Central Core -->
-                          <circle cx="110" cy="110" r="11" fill="rgba(0, 229, 255, 0.9)" stroke="#ffffff" stroke-width="2" filter="url(#neuralGlow)"/>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <!-- Card 02: Product Engineering -->
-            <article class="orbit-card card-02" id="card-1" data-card="1" tabindex="0" role="button" aria-label="Open Product Engineering: Built for What Comes Next">
-              <div class="card-glass-outer">
-                <div class="card-glass-body">
-                  <div class="card-top-notch" aria-hidden="true"></div>
-                  
-                  <div class="card-layout-grid">
-                    <div class="card-info-col">
-                      <div class="card-header-row">
-                        <span class="card-category-tag">ENGINEERING</span>
-                      </div>
-                      
-                      <h3 class="card-headline">Built for What<br><em>Comes Next.</em></h3>
-                      
-                      <p class="card-description">Scalable digital platforms and connected systems engineered around real business needs.</p>
-                      
-                      <div class="card-action-row">
-                        <div class="card-circle-arrow" aria-hidden="true">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="card-visual-col">
-                      <div class="card-svg-container">
-                        <!-- Isometric Layer Stack & Glowing Geometric Cube SVG -->
-                        <svg class="feature-diagram-svg svg-isometric" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                          <defs>
-                            <filter id="cubeGlow" x="-20%" y="-20%" width="140%" height="140%">
-                              <feGaussianBlur stdDeviation="4" result="blur" />
-                              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                            </filter>
-                          </defs>
-
-                          <!-- Bottom Tier Slab -->
-                          <polygon points="110,165 175,190 110,215 45,190" stroke="rgba(0, 229, 255, 0.55)" stroke-width="1.2" fill="rgba(0, 229, 255, 0.05)"/>
-                          <polyline points="45,190 45,198 110,223 175,198 175,190" stroke="rgba(0, 229, 255, 0.45)" stroke-width="1" fill="rgba(0, 20, 50, 0.45)"/>
-                          <line x1="110" y1="215" x2="110" y2="223" stroke="rgba(0, 229, 255, 0.45)" stroke-width="1"/>
-
-                          <!-- Middle Tier Slab -->
-                          <polygon points="110,135 175,160 110,185 45,160" stroke="rgba(0, 229, 255, 0.7)" stroke-width="1.2" fill="rgba(0, 229, 255, 0.07)"/>
-                          <polyline points="45,160 45,168 110,193 175,168 175,160" stroke="rgba(0, 229, 255, 0.55)" stroke-width="1" fill="rgba(0, 20, 50, 0.45)"/>
-                          <line x1="110" y1="185" x2="110" y2="193" stroke="rgba(0, 229, 255, 0.55)" stroke-width="1"/>
-
-                          <!-- Top Tier Slab -->
-                          <polygon points="110,105 175,130 110,155 45,130" stroke="rgba(0, 229, 255, 0.9)" stroke-width="1.3" fill="rgba(0, 229, 255, 0.1)"/>
-                          <polyline points="45,130 45,138 110,163 175,138 175,130" stroke="rgba(0, 229, 255, 0.65)" stroke-width="1" fill="rgba(0, 20, 50, 0.45)"/>
-                          <line x1="110" y1="155" x2="110" y2="163" stroke="rgba(0, 229, 255, 0.65)" stroke-width="1"/>
-
-                          <!-- Alignment Guide Lines -->
-                          <line x1="110" y1="88" x2="110" y2="105" stroke="rgba(0, 229, 255, 0.5)" stroke-dasharray="2 2"/>
-                          <line x1="45" y1="130" x2="45" y2="190" stroke="rgba(0, 229, 255, 0.28)" stroke-dasharray="2 2"/>
-                          <line x1="175" y1="130" x2="175" y2="190" stroke="rgba(0, 229, 255, 0.28)" stroke-dasharray="2 2"/>
-
-                          <!-- Glowing Isometric Cube (Apex) -->
-                          <polygon points="110,32 148,50 110,68 72,50" stroke="#00e5ff" stroke-width="1.6" fill="rgba(0, 229, 255, 0.25)" filter="url(#cubeGlow)"/>
-                          <polygon points="72,50 110,68 110,106 72,88" stroke="#00e5ff" stroke-width="1.6" fill="rgba(0, 160, 240, 0.18)" filter="url(#cubeGlow)"/>
-                          <polygon points="110,68 148,50 148,88 110,106" stroke="#00e5ff" stroke-width="1.6" fill="rgba(0, 100, 200, 0.22)" filter="url(#cubeGlow)"/>
-
-                          <circle cx="110" cy="68" r="4.5" fill="#ffffff" filter="url(#cubeGlow)"/>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <!-- Card 03: Intelligent Automation -->
-            <article class="orbit-card card-03" id="card-2" data-card="2" tabindex="0" role="button" aria-label="Open Intelligent Automation: Less Repetition. More Possibility">
-              <div class="card-glass-outer">
-                <div class="card-glass-body">
-                  <div class="card-top-notch" aria-hidden="true"></div>
-                  
-                  <div class="card-layout-grid">
-                    <div class="card-info-col">
-                      <div class="card-header-row">
-                        <span class="card-category-tag">AUTOMATION</span>
-                      </div>
-                      
-                      <h3 class="card-headline">Less Repetition.<br><em>More Possibility.</em></h3>
-                      
-                      <p class="card-description">Intelligent workflows that simplify operations and help teams move faster.</p>
-                      
-                      <div class="card-action-row">
-                        <div class="card-circle-arrow" aria-hidden="true">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="card-visual-col">
-                      <div class="card-svg-container">
-                        <!-- Editable Workflow Diagram SVG -->
-                        <svg class="feature-diagram-svg svg-workflow" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                          <defs>
-                            <filter id="flowGlow" x="-20%" y="-20%" width="140%" height="140%">
-                              <feGaussianBlur stdDeviation="3.5" result="blur" />
-                              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                            </filter>
-                          </defs>
-
-                          <!-- Directional Conduit Paths -->
-                          <line x1="45" y1="110" x2="75" y2="110" stroke="rgba(0, 229, 255, 0.9)" stroke-width="1.6"/>
-                          <path d="M115 100 L115 65 Q115 60 120 60 L140 60" stroke="rgba(0, 229, 255, 0.8)" stroke-width="1.6" fill="none"/>
-                          <path d="M115 120 L115 155 Q115 160 120 160 L140 160" stroke="rgba(0, 229, 255, 0.8)" stroke-width="1.6" fill="none"/>
-                          <path d="M180 60 L188 60 Q192 60 192 65 L192 105" stroke="rgba(0, 229, 255, 0.8)" stroke-width="1.6" fill="none"/>
-                          <path d="M180 160 L188 160 Q192 160 192 155 L192 115" stroke="rgba(0, 229, 255, 0.8)" stroke-width="1.6" fill="none"/>
-                          <path d="M160 178 L160 195 Q160 200 155 200 L95 200 Q90 200 90 195 L90 125" stroke="rgba(0, 229, 255, 0.4)" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
-
-                          <!-- Trigger Node -->
-                          <rect x="25" y="96" width="28" height="28" rx="6" stroke="#00e5ff" stroke-width="1.5" fill="rgba(0, 229, 255, 0.12)" filter="url(#flowGlow)"/>
-                          <circle cx="39" cy="110" r="4.5" fill="#00e5ff"/>
-
-                          <!-- Main Processing Block -->
-                          <rect x="75" y="92" width="45" height="36" rx="8" stroke="#00e5ff" stroke-width="1.6" fill="rgba(0, 229, 255, 0.2)" filter="url(#flowGlow)"/>
-                          <line x1="83" y1="104" x2="111" y2="104" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
-                          <line x1="83" y1="114" x2="105" y2="114" stroke="rgba(0, 229, 255, 0.7)" stroke-width="1.2" stroke-linecap="round"/>
-
-                          <!-- Upper Branch Block -->
-                          <rect x="140" y="44" width="42" height="32" rx="6" stroke="rgba(0, 229, 255, 0.9)" stroke-width="1.4" fill="rgba(0, 229, 255, 0.15)"/>
-                          <line x1="148" y1="55" x2="174" y2="55" stroke="rgba(0, 229, 255, 0.95)" stroke-width="1.2" stroke-linecap="round"/>
-                          <line x1="148" y1="64" x2="168" y2="64" stroke="rgba(0, 229, 255, 0.55)" stroke-width="1.2" stroke-linecap="round"/>
-
-                          <!-- Lower Branch Block -->
-                          <rect x="140" y="144" width="42" height="32" rx="6" stroke="rgba(0, 229, 255, 0.9)" stroke-width="1.4" fill="rgba(0, 229, 255, 0.15)"/>
-                          <line x1="148" y1="155" x2="174" y2="155" stroke="rgba(0, 229, 255, 0.95)" stroke-width="1.2" stroke-linecap="round"/>
-                          <line x1="148" y1="164" x2="168" y2="164" stroke="rgba(0, 229, 255, 0.55)" stroke-width="1.2" stroke-linecap="round"/>
-
-                          <!-- Output Terminal Node -->
-                          <circle cx="192" cy="110" r="10" stroke="#00e5ff" stroke-width="1.6" fill="rgba(0, 229, 255, 0.25)" filter="url(#flowGlow)"/>
-                          <circle cx="192" cy="110" r="4.5" fill="#ffffff"/>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <!-- Card 04: Digital Experiences -->
-            <article class="orbit-card card-04" id="card-3" data-card="3" tabindex="0" role="button" aria-label="Open Digital Experiences: Designed to Make Sense">
-              <div class="card-glass-outer">
-                <div class="card-glass-body">
-                  <div class="card-top-notch" aria-hidden="true"></div>
-                  
-                  <div class="card-layout-grid">
-                    <div class="card-info-col">
-                      <div class="card-header-row">
-                        <span class="card-category-tag">EXPERIENCE DESIGN</span>
-                      </div>
-                      
-                      <h3 class="card-headline">Designed to<br><em>Make Sense.</em></h3>
-                      
-                      <p class="card-description">Thoughtful user experiences that make complex products intuitive and accessible.</p>
-                      
-                      <div class="card-action-row">
-                        <div class="card-circle-arrow" aria-hidden="true">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="card-visual-col">
-                      <div class="card-svg-container">
-                        <!-- Miniature Interface Wireframe SVG -->
-                        <svg class="feature-diagram-svg svg-wireframe" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                          <defs>
-                            <filter id="uiGlow" x="-20%" y="-20%" width="140%" height="140%">
-                              <feGaussianBlur stdDeviation="3" result="blur" />
-                              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                            </filter>
-                          </defs>
-
-                          <!-- Outer Browser Frame -->
-                          <rect x="25" y="35" width="170" height="150" rx="10" stroke="#00e5ff" stroke-width="1.5" fill="rgba(3, 12, 32, 0.75)" filter="url(#uiGlow)"/>
-                          
-                          <!-- Chrome Header Bar -->
-                          <line x1="25" y1="62" x2="195" y2="62" stroke="rgba(0, 229, 255, 0.35)" stroke-width="1"/>
-                          <circle cx="42" cy="49" r="3" fill="#00e5ff" opacity="0.9"/>
-                          <circle cx="53" cy="49" r="3" fill="#00e5ff" opacity="0.6"/>
-                          <circle cx="64" cy="49" r="3" fill="#00e5ff" opacity="0.4"/>
-                          <rect x="85" y="44" width="90" height="10" rx="5" stroke="rgba(0, 229, 255, 0.3)" stroke-width="0.8" fill="rgba(0, 229, 255, 0.05)"/>
-
-                          <!-- Left Hero Panel -->
-                          <rect x="38" y="75" width="62" height="52" rx="6" stroke="rgba(0, 229, 255, 0.75)" stroke-width="1.2" fill="rgba(0, 229, 255, 0.08)"/>
-                          <polygon points="46,112 58,94 70,112" stroke="rgba(0, 229, 255, 0.6)" stroke-width="1" fill="none"/>
-                          <polygon points="64,112 75,99 86,112" stroke="rgba(0, 229, 255, 0.4)" stroke-width="1" fill="none"/>
-                          <circle cx="55" cy="88" r="3" fill="#00e5ff" opacity="0.75"/>
-
-                          <!-- Right Content Rows -->
-                          <line x1="112" y1="82" x2="180" y2="82" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
-                          <line x1="112" y1="94" x2="182" y2="94" stroke="rgba(0, 229, 255, 0.65)" stroke-width="1.2" stroke-linecap="round"/>
-                          <line x1="112" y1="104" x2="170" y2="104" stroke="rgba(0, 229, 255, 0.45)" stroke-width="1.2" stroke-linecap="round"/>
-                          <line x1="112" y1="114" x2="155" y2="114" stroke="rgba(0, 229, 255, 0.35)" stroke-width="1.2" stroke-linecap="round"/>
-
-                          <!-- Controls Divider -->
-                          <line x1="38" y1="138" x2="182" y2="138" stroke="rgba(0, 229, 255, 0.25)" stroke-width="1" stroke-dasharray="3 3"/>
-
-                          <!-- Bottom Interactive Elements -->
-                          <rect x="38" y="148" width="22" height="22" rx="5" stroke="#00e5ff" stroke-width="1.4" fill="rgba(0, 229, 255, 0.15)"/>
-                          <path d="M43 159 L47 163 L55 153" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-
-                          <rect x="70" y="152" width="112" height="6" rx="3" fill="rgba(0, 229, 255, 0.15)"/>
-                          <rect x="70" y="152" width="65" height="6" rx="3" fill="#00e5ff"/>
-                          <circle cx="135" cy="155" r="5" fill="#ffffff" filter="url(#uiGlow)"/>
-                          <line x1="70" y1="166" x2="120" y2="166" stroke="rgba(0, 229, 255, 0.4)" stroke-width="1" stroke-linecap="round"/>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
+        <div class="philosophy-content-split">
+          <div class="lead-column">
+            <p class="editorial-body-large">
+              Businesses face complex challenges, disconnected systems, and technology that struggles to keep pace with change.
+            </p>
+          </div>
+          <div class="support-column">
+            <p class="editorial-body-muted">
+              We help turn uncertainty into direction, ideas into products, and emerging technologies into solutions people can actually use.
+            </p>
+            <p class="editorial-body-highlight">
+              The best technology does more than solve a problem. It creates clarity, unlocks opportunities, and makes meaningful progress possible.
+            </p>
           </div>
         </div>
 
-        <!-- Lower-Right Storyboard State Tracker -->
-        <div class="stage-tracker" id="s3Tracker">
-          <span class="tracker-counter" id="s3TrackerCounter">STATE 01</span>
-          <span class="tracker-label" id="s3TrackerLabel">INITIAL ORBIT</span>
-        </div>
-
-        <!-- 9-Stage Storyboard Navigation Indicator -->
-        <div class="carousel-nav-indicator" id="s3NavIndicator" aria-label="Storyboard state progress">
-          <span class="indicator-pip active" data-state="1" title="State 01: Initial State"></span>
-          <span class="indicator-pip" data-state="2" title="State 02: Card 1 Moves to Front"></span>
-          <span class="indicator-pip" data-state="3" title="State 03: Card 1 Full View"></span>
-          <span class="indicator-pip" data-state="4" title="State 04: Card 2 Moves to Front"></span>
-          <span class="indicator-pip" data-state="5" title="State 05: Card 2 Full View"></span>
-          <span class="indicator-pip" data-state="6" title="State 06: Card 3 Moves to Front"></span>
-          <span class="indicator-pip" data-state="7" title="State 07: Card 3 Full View"></span>
-          <span class="indicator-pip" data-state="8" title="State 08: Card 4 Moves to Front"></span>
-          <span class="indicator-pip" data-state="9" title="State 09: Card 4 Full View"></span>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         CLICK-TO-EXPAND DETAIL MODAL
-         ==================================================================== -->
-    <div class="card-modal-backdrop" id="cardModal" aria-hidden="true" role="dialog" aria-modal="true">
-      <div class="card-modal-glass">
-        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
-          <span class="close-icon">✕</span>
-        </button>
-
-        <div class="modal-content-grid">
-          <div class="modal-visual-column">
-            <div class="modal-wireframe-frame" id="modalWireframeSlot">
-              <!-- Dynamically populated wireframe -->
-            </div>
-            <div class="modal-meta-specs">
-              <span class="modal-spec-label">STATUS // PRODUCTION READY</span>
-              <span class="modal-spec-label">SYSTEM // PARADIGM 2.0</span>
-            </div>
-          </div>
-
-          <div class="modal-info-column">
-            <div class="modal-header-meta">
-              <span class="modal-category" id="modalCategory">AI PRODUCTS</span>
-              <span class="modal-index" id="modalNumber">01</span>
-            </div>
-
-            <h3 class="modal-headline" id="modalHeadline">Intelligence, made <em>useful.</em></h3>
-            <p class="modal-lead" id="modalLead">AI-powered products designed to turn complex workflows into meaningful user experiences.</p>
-
-            <div class="modal-details-body">
-              <h4 class="modal-subheading">ARCHITECTURAL HIGHLIGHTS</h4>
-              <ul class="modal-feature-list" id="modalFeatures">
-                <li>Dynamic multi-agent reasoning systems tuned for enterprise workflows.</li>
-                <li>Zero-latency edge intelligence with resilient fallbacks and governance.</li>
-                <li>Empathetic human-AI interface models that reduce cognitive overhead.</li>
-              </ul>
-            </div>
-
-            <div class="modal-footer-action">
-              <button class="modal-action-btn" id="modalActionClose">DISMISS SPECIFICATION</button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-  </main>
+  </section>
 
+  <!-- STAGE 3 — CAPABILITIES SECTION -->
+  <section class="story-stage" id="stage-capabilities" aria-label="Our Capabilities">
+    <div class="editorial-container">
+      
+      <!-- Section Header -->
+      <div class="editorial-stage-heading">
+        <div class="heading-meta">
+          <span class="editorial-eyebrow">CAPABILITIES</span>
+          <span class="panel-numeric">03 / 06</span>
+        </div>
+        <h2 class="editorial-section-title">
+          From complexity <em>to clarity.</em>
+        </h2>
+      </div>
+
+      <!-- Refined 4-Column Editorial Glass Layout -->
+      <div class="editorial-capabilities-grid">
+        
+        <!-- 01 AI -->
+        <div class="capability-column">
+          <div class="cap-num">01</div>
+          <h3 class="cap-name">Artificial Intelligence</h3>
+          <p class="cap-summary">
+            Build intelligent workflows, AI-powered applications, and practical automation that helps businesses work smarter.
+          </p>
+          <div class="cap-footprint">Machine Learning · Agentic AI · LLMs</div>
+        </div>
+
+        <!-- 02 Products -->
+        <div class="capability-column">
+          <div class="cap-num">02</div>
+          <h3 class="cap-name">Digital Products &amp; SaaS</h3>
+          <p class="cap-summary">
+            Turn ideas into intuitive, scalable digital products designed around real user and business needs.
+          </p>
+          <div class="cap-footprint">Product Design · Architecture · Cloud</div>
+        </div>
+
+        <!-- 03 Enterprise -->
+        <div class="capability-column">
+          <div class="cap-num">03</div>
+          <h3 class="cap-name">Enterprise Solutions</h3>
+          <p class="cap-summary">
+            Simplify complex operations through connected platforms, structured workflows, and integrated systems.
+          </p>
+          <div class="cap-footprint">Integration · Scalability · Modernization</div>
+        </div>
+
+        <!-- 04 Consulting -->
+        <div class="capability-column">
+          <div class="cap-num">04</div>
+          <h3 class="cap-name">Technology Consulting</h3>
+          <p class="cap-summary">
+            Align business goals, product strategy, and technology decisions to create a stronger foundation for growth.
+          </p>
+          <div class="cap-footprint">Strategy · Roadmap · Advisory</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STAGE 4 — PRODUCTS SECTION (COMPLETELY REDESIGNED EDITORIAL GLASS) -->
+  <section class="story-stage" id="stage-products" aria-label="Our Products">
+    <div class="editorial-container">
+      
+      <!-- Section Header -->
+      <div class="editorial-stage-heading">
+        <div class="heading-meta">
+          <span class="editorial-eyebrow">IDEAS IN ACTION</span>
+          <span class="panel-numeric">04 / 06</span>
+        </div>
+        <h2 class="editorial-section-title">
+          Technology built for the <em>real world.</em>
+        </h2>
+        <p class="editorial-section-subtitle">
+          We build technology that moves beyond concepts into practical applications.
+        </p>
+      </div>
+
+      <!-- Refined Horizontal Editorial Product Rows / Grid with Generous Spacing -->
+      <div class="editorial-products-container">
+        
+        <!-- Product 1: IRMA Engine -->
+        <a href="https://irmaengine.ai/" target="_blank" rel="noopener noreferrer" class="editorial-product-strip">
+          <div class="product-index-badge">01</div>
+          <div class="product-main-meta">
+            <h3 class="product-title">IRMA Engine</h3>
+            <span class="product-category">MARKETING INTELLIGENCE</span>
+          </div>
+          <p class="product-desc">
+            AI-powered marketing intelligence and campaign execution.
+          </p>
+          <div class="product-link-pill">
+            <span>irmaengine.ai</span>
+            <span class="arrow">↗</span>
+          </div>
+        </a>
+
+        <!-- Product 2: HireMitra AI -->
+        <a href="https://hiremitra.ai/" target="_blank" rel="noopener noreferrer" class="editorial-product-strip">
+          <div class="product-index-badge">02</div>
+          <div class="product-main-meta">
+            <h3 class="product-title">HireMitra AI</h3>
+            <span class="product-category">TALENT DISCOVERY</span>
+          </div>
+          <p class="product-desc">
+            Intelligent hiring experiences that connect talent and opportunities.
+          </p>
+          <div class="product-link-pill">
+            <span>hiremitra.ai</span>
+            <span class="arrow">↗</span>
+          </div>
+        </a>
+
+        <!-- Product 3: ECSE -->
+        <a href="https://ecse.in/index.html" target="_blank" rel="noopener noreferrer" class="editorial-product-strip">
+          <div class="product-index-badge">03</div>
+          <div class="product-main-meta">
+            <h3 class="product-title">ECSE</h3>
+            <span class="product-category">INSTITUTIONAL TECH</span>
+          </div>
+          <p class="product-desc">
+            Connected school management technology designed to support institutional excellence.
+          </p>
+          <div class="product-link-pill">
+            <span>ecse.in</span>
+            <span class="arrow">↗</span>
+          </div>
+        </a>
+
+        <!-- Product 4: Mitraverse AI -->
+        <a href="https://mitram.ai/" target="_blank" rel="noopener noreferrer" class="editorial-product-strip">
+          <div class="product-index-badge">04</div>
+          <div class="product-main-meta">
+            <h3 class="product-title">Mitraverse AI</h3>
+            <span class="product-category">ACCESSIBLE AI</span>
+          </div>
+          <p class="product-desc">
+            AI-powered experiences built around more accessible and useful intelligence.
+          </p>
+          <div class="product-link-pill">
+            <span>mitram.ai</span>
+            <span class="arrow">↗</span>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STAGE 5 — APPROACH SECTION -->
+  <section class="story-stage" id="stage-approach" aria-label="Our Approach">
+    <div class="editorial-container">
+      
+      <div class="editorial-stage-heading">
+        <div class="heading-meta">
+          <span class="editorial-eyebrow">HOW WE WORK</span>
+          <span class="panel-numeric">05 / 06</span>
+        </div>
+        <h2 class="editorial-section-title">
+          Built with purpose. <em>Designed for impact.</em>
+        </h2>
+      </div>
+
+      <!-- Linear Step Flow with Hairline Connectors -->
+      <div class="editorial-approach-grid">
+        
+        <div class="approach-item">
+          <div class="approach-header">
+            <span class="approach-num">01</span>
+            <span class="approach-dot"></span>
+          </div>
+          <h3 class="approach-label">Understand</h3>
+          <p class="approach-body">
+            We listen, investigate, and identify the challenges that matter most.
+          </p>
+        </div>
+
+        <div class="approach-item">
+          <div class="approach-header">
+            <span class="approach-num">02</span>
+            <span class="approach-dot"></span>
+          </div>
+          <h3 class="approach-label">Strategize</h3>
+          <p class="approach-body">
+            We define the right direction, technology, and architectural roadmap.
+          </p>
+        </div>
+
+        <div class="approach-item">
+          <div class="approach-header">
+            <span class="approach-num">03</span>
+            <span class="approach-dot"></span>
+          </div>
+          <h3 class="approach-label">Build</h3>
+          <p class="approach-body">
+            We design and engineer purposeful, scalable solutions with craftsmanship.
+          </p>
+        </div>
+
+        <div class="approach-item">
+          <div class="approach-header">
+            <span class="approach-num">04</span>
+            <span class="approach-dot"></span>
+          </div>
+          <h3 class="approach-label">Evolve</h3>
+          <p class="approach-body">
+            We refine, optimize, and help solutions grow with your business over time.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STAGE 6 — FINAL CALL TO ACTION & FOOTER -->
+  <section class="story-stage" id="stage-final-cta" aria-label="Final Call to Action">
+    <div class="editorial-container final-stage-wrap">
+      
+      <div class="editorial-glass-panel final-cta-panel">
+        <div class="panel-header-row">
+          <span class="editorial-eyebrow">START YOUR JOURNEY</span>
+          <span class="panel-numeric">06 / 06</span>
+        </div>
+
+        <h2 class="editorial-cta-headline">
+          The next chapter<br>
+          <em>starts here.</em>
+        </h2>
+
+        <p class="editorial-cta-desc">
+          Have a complex challenge, a bold idea, or a product waiting to be built?<br>
+          Let's turn what's possible into something real.
+        </p>
+
+        <div class="editorial-hero-actions" style="margin-top: 2rem;">
+          <button class="editorial-link-btn primary-link open-modal-trigger">
+            <span>Start a conversation</span>
+            <span class="link-arrow">↗</span>
+          </button>
+          <a href="#stage-products" class="editorial-link-btn secondary-link">
+            <span>Explore our work</span>
+            <span class="link-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Minimal Editorial Studio Footer -->
+      <footer class="editorial-footer">
+        <div class="footer-col-brand">
+          <img src="assets/ishvara-logo.png" alt="Ishvara Tech Consulting" class="footer-brand-logo">
+          <span class="footer-tagline">We build what comes next.</span>
+        </div>
+
+        <ul class="footer-nav">
+          <li><a href="#stage-hero">Home</a></li>
+          <li><a href="#stage-philosophy">Philosophy</a></li>
+          <li><a href="#stage-capabilities">Capabilities</a></li>
+          <li><a href="#stage-products">Products</a></li>
+          <li><a href="#stage-approach">Approach</a></li>
+          <li><a href="#contact" class="open-modal-trigger">Contact</a></li>
+        </ul>
+
+        <div class="footer-col-copy">
+          <span>© 2026 Ishvara Tech Consulting. All rights reserved.</span>
+        </div>
+      </footer>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       INQUIRY & CONTACT MODAL (REFINED GLASS)
+       ========================================================================= -->
+  <div class="contact-modal" id="contactModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-glass-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
+      
+      <div class="modal-header">
+        <span class="editorial-eyebrow">INITIATE DIALOGUE</span>
+        <h3 class="modal-title">Let's build <em>what comes next.</em></h3>
+        <p class="modal-desc">
+          Share your vision with our principal consultants and technical architects.
+        </p>
+      </div>
+
+      <form id="contactForm" class="modal-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="formName" class="form-label">Name</label>
+            <input type="text" id="formName" class="form-input" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <label for="formEmail" class="form-label">Email</label>
+            <input type="email" id="formEmail" class="form-input" placeholder="name@company.com" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="formCompany" class="form-label">Company / Organization</label>
+          <input type="text" id="formCompany" class="form-input" placeholder="Company Name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="formMsg" class="form-label">Project Scope</label>
+          <textarea id="formMsg" class="form-input" rows="3" placeholder="Tell us about your challenge, product vision, or strategic goals..." required></textarea>
+        </div>
+
+        <button type="submit" class="modal-submit-btn">
+          <span>Send Transmission</span>
+          <span>↗</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scroll Spacing Container for 211 Frames -->
+  <div class="scroll-container" aria-hidden="true"></div>
+
+  <script src="audio.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
