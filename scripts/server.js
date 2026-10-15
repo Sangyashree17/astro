@@ -4,7 +4,7 @@ const path = require('path');
 const zlib = require('zlib');
 
 const PORT = 8080;
-const PUBLIC_DIR = __dirname;
+const PUBLIC_DIR = fs.existsSync(path.join(__dirname, 'index.html')) ? __dirname : path.resolve(__dirname, '..');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -40,49 +40,26 @@ const server = http.createServer((req, res) => {
 
     const headers = {
       'Content-Type': contentType,
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
+      'Cache-Control': isImage ? 'public, max-age=31536000, immutable' : 'no-cache',
+      'X-Content-Type-Options': 'nosniff'
     };
 
-    // Aggressive Long-Term Caching for Images & Assets (1 Year, Immutable)
-    if (isImage || ext === '.mp4') {
-      headers['Cache-Control'] = 'public, max-age=31536000, immutable';
-    } else {
-      headers['Cache-Control'] = 'no-cache, must-revalidate';
-    }
-
-    // HTTP 206 Range Request support
-    const range = req.headers.range;
-    if (range && (ext === '.mp4')) {
-      const parts = range.replace(/bytes=/, '').split('-');
-      const start = parseInt(parts[0], 10);
-      const end = parts[1] ? parseInt(parts[1], 10) : stats.size - 1;
-      const chunkSize = (end - start) + 1;
-
-      headers['Content-Range'] = `bytes ${start}-${end}/${stats.size}`;
-      headers['Accept-Ranges'] = 'bytes';
-      headers['Content-Length'] = chunkSize;
-
-      res.writeHead(206, headers);
-      fs.createReadStream(filePath, { start, end }).pipe(res);
-      return;
-    }
-
-    // Gzip Compression for HTML, CSS, JS
     const acceptEncoding = req.headers['accept-encoding'] || '';
-    if ((ext === '.html' || ext === '.css' || ext === '.js' || ext === '.json') && acceptEncoding.includes('gzip')) {
+
+    if (!isImage && acceptEncoding.includes('gzip')) {
       headers['Content-Encoding'] = 'gzip';
       res.writeHead(200, headers);
       const raw = fs.createReadStream(filePath);
       raw.pipe(zlib.createGzip()).pipe(res);
-      return;
+    } else {
+      headers['Content-Length'] = stats.size;
+      res.writeHead(200, headers);
+      fs.createReadStream(filePath).pipe(res);
     }
-
-    headers['Content-Length'] = stats.size;
-    res.writeHead(200, headers);
-    fs.createReadStream(filePath).pipe(res);
   });
 });
 
-server.listen(PORT, '0.0.0.0', () => {
-  console.log(`High-Performance Cached Server running at http://localhost:${PORT}/`);
+server.listen(PORT, () => {
+  console.log(`[Ishvara Tech High-Speed Server] Running at http://localhost:${PORT}/ serving ${PUBLIC_DIR}`);
 });
