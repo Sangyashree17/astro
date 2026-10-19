@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 50" width="230" height="50" fill="none">
+  <!-- STPI Emblem / Arcs -->
+  <g transform="translate(10, 7)">
+    <circle cx="17" cy="18" r="16" fill="#0A3A82"/>
+    <circle cx="17" cy="18" r="13" fill="#FFFFFF"/>
+    <circle cx="17" cy="18" r="10" fill="#0A3A82"/>
+    <!-- Central leaf / flame dynamic element -->
+    <path d="M 17 9 C 23 14 23 22 17 26 C 13 22 13 15 17 9 Z" fill="#F26522"/>
+    <circle cx="17" cy="18" r="3" fill="#FFFFFF"/>
+  </g>
+  
+  <!-- "STPI" Typography -->
+  <text x="52" y="31" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="900" fill="#001A51" letter-spacing="1.2">STPI</text>
+  
+  <!-- "REGISTERED" Badge Pill -->
+  <rect x="122" y="15" width="98" height="20" rx="4" fill="#EFF7FF" stroke="#001A51" stroke-width="1.2"/>
+  <text x="171" y="29" font-family="'Inter', 'Outfit', sans-serif" font-size="10.5" font-weight="700" fill="#001A51" text-anchor="middle" letter-spacing="0.8">REGISTERED</text>
+</svg>

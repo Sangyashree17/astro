@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" width="160" height="40" fill="none">
+  <!-- NASSCOM Geometric Prism Icon -->
+  <g transform="translate(6, 4)">
+    <!-- Left polygon (Red/Coral) -->
+    <path d="M 0 24 L 9 4 L 17 18 L 8 30 Z" fill="#E53935"/>
+    <!-- Center polygon (Deep Navy) -->
+    <path d="M 11 2 L 22 2 L 14 30 L 5 30 Z" fill="#001A51"/>
+    <!-- Right polygon (Royal Blue) -->
+    <path d="M 16 3 L 28 16 L 20 30 L 12 16 Z" fill="#2563EB"/>
+  </g>
+  
+  <!-- "nasscom" Typography -->
+  <text x="44" y="27" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="900" fill="#001A51" letter-spacing="-0.5">nasscom</text>
+</svg>

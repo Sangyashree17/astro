@@ -37,6 +37,37 @@ const server = http.createServer((req, res) => {
     const ext = path.extname(filePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
     const isImage = ext === '.jpg' || ext === '.jpeg' || ext === '.png' || ext === '.webp' || ext === '.svg';
+    const isVideo = ext === '.mp4';
+
+    // Handle video Range requests
+    if (isVideo) {
+      const range = req.headers.range;
+      if (range) {
+        const parts = range.replace(/bytes=/, '').split('-');
+        const start = parseInt(parts[0], 10);
+        const end = parts[1] ? parseInt(parts[1], 10) : stats.size - 1;
+        const chunksize = (end - start) + 1;
+        const file = fs.createReadStream(filePath, { start, end });
+        const head = {
+          'Content-Range': `bytes ${start}-${end}/${stats.size}`,
+          'Accept-Ranges': 'bytes',
+          'Content-Length': chunksize,
+          'Content-Type': 'video/mp4',
+          'Access-Control-Allow-Origin': '*'
+        };
+        res.writeHead(206, head);
+        file.pipe(res);
+        return;
+      }
+      res.writeHead(200, {
+        'Content-Length': stats.size,
+        'Content-Type': 'video/mp4',
+        'Accept-Ranges': 'bytes',
+        'Access-Control-Allow-Origin': '*'
+      });
+      fs.createReadStream(filePath).pipe(res);
+      return;
+    }
 
     const headers = {
       'Content-Type': contentType,
@@ -47,7 +78,7 @@ const server = http.createServer((req, res) => {
 
     const acceptEncoding = req.headers['accept-encoding'] || '';
 
-    if (!isImage && acceptEncoding.includes('gzip')) {
+    if (!isImage && !isVideo && acceptEncoding.includes('gzip')) {
       headers['Content-Encoding'] = 'gzip';
       res.writeHead(200, headers);
       const raw = fs.createReadStream(filePath);

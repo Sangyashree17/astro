@@ -3,513 +3,916 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ishvara Tech Consulting — We Build What Comes Next</title>
-  <meta name="description" content="Ishvara Tech Consulting transforms complex challenges into intelligent digital products, AI-powered systems, and scalable technology for high-impact enterprises.">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/ishvara-logo.png">
-
-  <!-- Google Fonts: Instrument Serif (Editorial Display), Inter (Clean Sans), Space Grotesk (Technical Readouts) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-  
+  <title>Ishvara Tech Consulting | We Build What Comes Next</title>
+  <meta name="description" content="We design, engineer, and scale intelligent digital products that transform ambitious ideas into meaningful business outcomes.">
+  <link rel="icon" type="image/png" href="assets/ishvara-logo-light.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- =========================================================================
-       ASSET PRELOADER
-       ========================================================================= -->
-  <div class="cinematic-preloader" id="cinematicPreloader">
-    <div class="preloader-inner">
-      <img src="assets/ishvara-logo.png" alt="Ishvara Tech Consulting" class="preloader-logo">
-      <div class="preloader-track">
-        <div class="preloader-bar" id="preloaderBar"></div>
-      </div>
-      <span class="preloader-text" id="preloaderText">INITIALIZING CINEMATIC SEQUENCE...</span>
-    </div>
+  <!-- Subtle Blueprint Dot-Grid Background Texture (Monochromatic Blue Tinted) -->
+  <div class="blueprint-grid-bg" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       REFERENCE 2: Floating Left Navigation Dock Rail
+       ========================================================================== -->
+  <aside class="floating-dock-rail" aria-label="Quick Navigation">
+    <a href="#hero" class="dock-item active" data-section="hero" aria-label="Hero Overview">
+      <svg viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span class="dock-tooltip">Overview</span>
+    </a>
+    <a href="#capabilities" class="dock-item" data-section="capabilities" aria-label="Enterprise Capabilities">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span class="dock-tooltip">Capabilities</span>
+    </a>
+    <a href="#solutions" class="dock-item" data-section="solutions" aria-label="Stacking Feature Cards">
+      <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      <span class="dock-tooltip">Solutions</span>
+    </a>
+    <a href="#reviews" class="dock-item" data-section="reviews" aria-label="Google Reviews & Feedback">
+      <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span class="dock-tooltip">Google Reviews</span>
+    </a>
+    <a href="#faq" class="dock-item" data-section="faq" aria-label="Frequently Asked Questions">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span class="dock-tooltip">FAQ</span>
+    </a>
+    <a href="#contact" class="dock-item" data-section="contact" aria-label="Book Consultation">
+      <svg viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <span class="dock-tooltip">Get in Touch</span>
+    </a>
+  </aside>
+
+  <!-- ==========================================================================
+       REFERENCE 2: Top Right Callout Button
+       ========================================================================== -->
+  <div class="top-callout-bar">
+    <a href="#contact" class="btn-book-now-top" id="topBookBtn">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Book a Call Now</span>
+    </a>
   </div>
 
-  <!-- =========================================================================
-       NAVIGATION BAR (EDITORIAL, MINIMAL, GLASS HAIRLINE)
-       ========================================================================= -->
-  <header class="site-nav" id="siteNav">
-    <a href="#stage-hero" class="nav-brand" aria-label="Ishvara Tech Consulting">
-      <img src="assets/ishvara-logo.png" alt="Ishvara Tech Consulting" class="nav-brand-logo">
-    </a>
+  <!-- ==========================================================================
+       REFERENCE 1: Header Navigation
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-container">
+      <a href="#hero" class="nav-brand" aria-label="Ishvara Tech Consulting">
+        <img src="assets/ishvara-logo-light.png" alt="Ishvara Tech Consulting" class="nav-brand-logo">
+      </a>
 
-    <nav class="nav-links-wrap" aria-label="Primary Navigation">
-      <ul class="nav-links">
-        <li><a href="#stage-philosophy" class="nav-link">Philosophy</a></li>
-        <li><a href="#stage-capabilities" class="nav-link">Capabilities</a></li>
-        <li><a href="#stage-products" class="nav-link">Products</a></li>
-        <li><a href="#stage-approach" class="nav-link">Approach</a></li>
-      </ul>
-    </nav>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="#hero">Overview</a></li>
+          <li class="nav-item"><a href="#capabilities">Capabilities</a></li>
+          <li class="nav-item"><a href="#solutions">Solutions</a></li>
+          <li class="nav-item"><a href="#reviews">Reviews</a></li>
+          <li class="nav-item"><a href="#faq">FAQ</a></li>
+          <li class="nav-item"><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
 
-    <div class="nav-actions">
-      <!-- Top-Right Soothing Sound Toggle Button -->
-      <button class="sound-toggle-btn" id="soundToggleBtn" aria-label="Toggle soothing ambient music" title="Toggle soothing music">
-        <span class="sound-icon-wrap" aria-hidden="true">
-          <span class="sound-wave-bar bar-1"></span>
-          <span class="sound-wave-bar bar-2"></span>
-          <span class="sound-wave-bar bar-3"></span>
-          <span class="sound-wave-bar bar-4"></span>
-        </span>
-        <span class="sound-status-text" id="soundStatusText">Sound Off</span>
-      </button>
+      <div class="header-actions">
+        <!-- Ambient Soundscape Button -->
+        <button class="audio-toggle-btn" id="audioToggleBtn" title="Toggle Ambient Audio Soundscape" aria-label="Toggle Audio">
+          <div class="audio-wave">
+            <span class="audio-bar"></span>
+            <span class="audio-bar"></span>
+            <span class="audio-bar"></span>
+            <span class="audio-bar"></span>
+          </div>
+          <span id="audioBtnText">Sound</span>
+        </button>
 
-      <button class="nav-cta-btn open-modal-trigger" aria-label="Start a conversation">
-        <span>Start a Conversation</span>
-        <span class="arrow-glyph">↗</span>
-      </button>
+        <a href="#contact" class="btn-header-primary" id="headerCtaBtn">Let's Build Together</a>
+      </div>
     </div>
   </header>
 
-  <!-- =========================================================================
-       PINNED FULLSCREEN CANVAS VIEWPORT (211 FRAMES)
-       ========================================================================= -->
-  <div class="cinematic-viewport">
-    <canvas id="cinematicCanvas"></canvas>
-    <!-- Cinematic subtle vignette and gradient overlays -->
-    <div class="cinematic-vignette" aria-hidden="true"></div>
-    <div class="cinematic-gradient-overlay" aria-hidden="true"></div>
+  <main>
+    <!-- ==========================================================================
+         SECTION 1: REFERENCE 1 — HERO SECTION (EXACT REPLICA)
+         - Headline: We Build What Comes Next.
+         - Supporting text: We design, engineer, and scale intelligent digital products
+           that transform ambitious ideas into meaningful business outcomes.
+         - CTAs: "Explore Our Work" and "Let's Build Together"
+         - Signature Fanned Cards Showcase with perspective arc & floating bubble tags
+         ========================================================================== -->
+    <section class="hero-ref1-section" id="hero">
+      <div class="container">
+        <div class="hero-pill-badge">
+          <span>AI &amp; Enterprise Digital Engineering</span>
+        </div>
+
+        <h1 class="hero-ref1-title">
+          We Build What Comes Next.
+        </h1>
+
+        <!-- Reference 1 Signature Fanned Cards Showcase Deck (Exact Replica) -->
+        <div class="fanned-deck-wrapper" id="fannedDeckWrapper">
+          <div class="fanned-cards-track" id="fannedCardsTrack">
+            <!-- Floating tag bubbles from Reference 1 -->
+            <div class="deck-tag-bubble deck-tag-ai">@ai.agents</div>
+            <div class="deck-tag-bubble deck-tag-core">@ishvara.core</div>
+            <div class="deck-tag-bubble deck-tag-cloud">@cloud.scale</div>
+
+            <!-- Card 1: AI Agents (Left Tilt) -->
+            <article class="fan-card fan-card-1" data-card="1" title="Autonomous AI Agent Architectures">
+              <img src="assets/card-ai.jpg" alt="Autonomous AI Agent Architectures" class="fan-card-img">
+              <div class="fan-card-glass-pill">AI Agents</div>
+            </article>
+
+            <!-- Card 2: Cloud Infrastructure (Gentle Left Tilt) -->
+            <article class="fan-card fan-card-2" data-card="2" title="Resilient Cloud Ecosystems">
+              <img src="assets/card-cloud.jpg" alt="Resilient Cloud Ecosystems" class="fan-card-img">
+              <div class="fan-card-glass-pill">Cloud Scale</div>
+            </article>
+
+            <!-- Card 3: Enterprise Torus Core (Center Hero Card) -->
+            <article class="fan-card fan-card-3" data-card="3" title="Ishvara Core Digital Architecture">
+              <img src="assets/card-torus.jpg" alt="Ishvara Core Digital Architecture" class="fan-card-img">
+              <div class="fan-card-glass-pill">Enterprise Core</div>
+            </article>
+
+            <!-- Card 4: Digital Product Engineering (Gentle Right Tilt) -->
+            <article class="fan-card fan-card-4" data-card="4" title="Full-Stack Digital Products">
+              <img src="assets/card-engineering.jpg" alt="Full-Stack Digital Products" class="fan-card-img">
+              <div class="fan-card-glass-pill">Engineering</div>
+            </article>
+
+            <!-- Card 5: Intelligent Flow Automation (Right Tilt) -->
+            <article class="fan-card fan-card-5" data-card="5" title="Intelligent Workflow Automation">
+              <img src="assets/card-automation.jpg" alt="Intelligent Workflow Automation" class="fan-card-img">
+              <div class="fan-card-glass-pill">Automation</div>
+            </article>
+          </div>
+        </div>
+
+        <p class="hero-ref1-supporting">
+          We design, engineer, and scale intelligent digital products that transform ambitious ideas into meaningful business outcomes.
+        </p>
+
+        <div class="hero-ref1-actions">
+          <a href="#solutions" class="btn-pill-ref1-primary">Explore Our Work &rarr;</a>
+          <a href="#contact" class="btn-pill-ref1-outline" id="heroConsultBtn">Let's Build Together</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ACCREDITATIONS & PARTNERSHIPS RUNNING BANNER (JUST BELOW HERO)
+         - NASSCOM Member | STPI Registered | AWS Partner in Continuous Infinite Loop
+         ========================================================================== -->
+    <aside class="hero-ticker-section" aria-label="Accreditations and Enterprise Certifications">
+      <div class="hero-ticker-track-wrapper">
+        <div class="hero-ticker-track">
+          <!-- Sequence Set 1 -->
+          <div class="hero-ticker-item">
+            <img src="assets/logos/logo-nasscom.svg" alt="NASSCOM" class="hero-ticker-logo">
+            <span class="hero-ticker-title">NASSCOM Member</span>
+            <span class="hero-ticker-badge verified">Verified</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item">
+            <img src="assets/logos/logo-stpi.svg" alt="STPI" class="hero-ticker-logo">
+            <span class="hero-ticker-title">STPI Registered</span>
+            <span class="hero-ticker-badge registered">Govt. of India</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item">
+            <img src="assets/logos/logo-aws.svg" alt="AWS" class="hero-ticker-logo aws">
+            <span class="hero-ticker-title">AWS Partner</span>
+            <span class="hero-ticker-badge partner">Cloud Tier</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <!-- Sequence Set 2 -->
+          <div class="hero-ticker-item">
+            <img src="assets/logos/logo-nasscom.svg" alt="NASSCOM" class="hero-ticker-logo">
+            <span class="hero-ticker-title">NASSCOM Member</span>
+            <span class="hero-ticker-badge verified">Verified</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item">
+            <img src="assets/logos/logo-stpi.svg" alt="STPI" class="hero-ticker-logo">
+            <span class="hero-ticker-title">STPI Registered</span>
+            <span class="hero-ticker-badge registered">Govt. of India</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item">
+            <img src="assets/logos/logo-aws.svg" alt="AWS" class="hero-ticker-logo aws">
+            <span class="hero-ticker-title">AWS Partner</span>
+            <span class="hero-ticker-badge partner">Cloud Tier</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <!-- Sequence Set 3 -->
+          <div class="hero-ticker-item">
+            <img src="assets/logos/logo-nasscom.svg" alt="NASSCOM" class="hero-ticker-logo">
+            <span class="hero-ticker-title">NASSCOM Member</span>
+            <span class="hero-ticker-badge verified">Verified</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item">
+            <img src="assets/logos/logo-stpi.svg" alt="STPI" class="hero-ticker-logo">
+            <span class="hero-ticker-title">STPI Registered</span>
+            <span class="hero-ticker-badge registered">Govt. of India</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item">
+            <img src="assets/logos/logo-aws.svg" alt="AWS" class="hero-ticker-logo aws">
+            <span class="hero-ticker-title">AWS Partner</span>
+            <span class="hero-ticker-badge partner">Cloud Tier</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <!-- Sequence Set 4 -->
+          <div class="hero-ticker-item">
+            <img src="assets/logos/logo-nasscom.svg" alt="NASSCOM" class="hero-ticker-logo">
+            <span class="hero-ticker-title">NASSCOM Member</span>
+            <span class="hero-ticker-badge verified">Verified</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item">
+            <img src="assets/logos/logo-stpi.svg" alt="STPI" class="hero-ticker-logo">
+            <span class="hero-ticker-title">STPI Registered</span>
+            <span class="hero-ticker-badge registered">Govt. of India</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item">
+            <img src="assets/logos/logo-aws.svg" alt="AWS" class="hero-ticker-logo aws">
+            <span class="hero-ticker-title">AWS Partner</span>
+            <span class="hero-ticker-badge partner">Cloud Tier</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <!-- DUPLICATE HALF FOR 100% GAPLESS 0% -> -50% INFINITE CSS LOOP -->
+          <div class="hero-ticker-item" aria-hidden="true">
+            <img src="assets/logos/logo-nasscom.svg" alt="NASSCOM" class="hero-ticker-logo">
+            <span class="hero-ticker-title">NASSCOM Member</span>
+            <span class="hero-ticker-badge verified">Verified</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item" aria-hidden="true">
+            <img src="assets/logos/logo-stpi.svg" alt="STPI" class="hero-ticker-logo">
+            <span class="hero-ticker-title">STPI Registered</span>
+            <span class="hero-ticker-badge registered">Govt. of India</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item" aria-hidden="true">
+            <img src="assets/logos/logo-aws.svg" alt="AWS" class="hero-ticker-logo aws">
+            <span class="hero-ticker-title">AWS Partner</span>
+            <span class="hero-ticker-badge partner">Cloud Tier</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item" aria-hidden="true">
+            <img src="assets/logos/logo-nasscom.svg" alt="NASSCOM" class="hero-ticker-logo">
+            <span class="hero-ticker-title">NASSCOM Member</span>
+            <span class="hero-ticker-badge verified">Verified</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item" aria-hidden="true">
+            <img src="assets/logos/logo-stpi.svg" alt="STPI" class="hero-ticker-logo">
+            <span class="hero-ticker-title">STPI Registered</span>
+            <span class="hero-ticker-badge registered">Govt. of India</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item" aria-hidden="true">
+            <img src="assets/logos/logo-aws.svg" alt="AWS" class="hero-ticker-logo aws">
+            <span class="hero-ticker-title">AWS Partner</span>
+            <span class="hero-ticker-badge partner">Cloud Tier</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item" aria-hidden="true">
+            <img src="assets/logos/logo-nasscom.svg" alt="NASSCOM" class="hero-ticker-logo">
+            <span class="hero-ticker-title">NASSCOM Member</span>
+            <span class="hero-ticker-badge verified">Verified</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item" aria-hidden="true">
+            <img src="assets/logos/logo-stpi.svg" alt="STPI" class="hero-ticker-logo">
+            <span class="hero-ticker-title">STPI Registered</span>
+            <span class="hero-ticker-badge registered">Govt. of India</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item" aria-hidden="true">
+            <img src="assets/logos/logo-aws.svg" alt="AWS" class="hero-ticker-logo aws">
+            <span class="hero-ticker-title">AWS Partner</span>
+            <span class="hero-ticker-badge partner">Cloud Tier</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item" aria-hidden="true">
+            <img src="assets/logos/logo-nasscom.svg" alt="NASSCOM" class="hero-ticker-logo">
+            <span class="hero-ticker-title">NASSCOM Member</span>
+            <span class="hero-ticker-badge verified">Verified</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item" aria-hidden="true">
+            <img src="assets/logos/logo-stpi.svg" alt="STPI" class="hero-ticker-logo">
+            <span class="hero-ticker-title">STPI Registered</span>
+            <span class="hero-ticker-badge registered">Govt. of India</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+
+          <div class="hero-ticker-item" aria-hidden="true">
+            <img src="assets/logos/logo-aws.svg" alt="AWS" class="hero-ticker-logo aws">
+            <span class="hero-ticker-title">AWS Partner</span>
+            <span class="hero-ticker-badge partner">Cloud Tier</span>
+          </div>
+          <span class="hero-ticker-sep" aria-hidden="true">✦</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==========================================================================
+         SECTION 2: REFERENCE 1 — IMMEDIATELY FOLLOWING SECTION (EXACT REPLICA)
+         - Enterprise Velocity & Capabilities Grid with Verified Impact Metrics
+         - Certified Technology Ecosystem Strip
+         ========================================================================== -->
+    <!-- ==========================================================================
+         SECTION 2: REFERENCE REPLICA — ENGINEERING HIGH-PERFORMANCE SYSTEMS
+         - Exact layout inspired by Pinterest Reference (Pin 1107181889669260466)
+         - Left Column: Sticky 3D Torus Narrative with Dynamic Stage Indicator
+         - Right Column: Interactive Feature Stack (Telemetry, Microservices Equalizer,
+           Collaboration Tracker, Node Graph) & Stacking Metrics Grid
+         - Certified Technology Ecosystem Strip
+         ========================================================================== -->
+    <section class="section-ref1-follow" id="capabilities">
+      <!-- FULL-SCREEN USER VIDEO BACKDROP (assets/Untitled video (33).mp4) — 100% UNBLURRED & PURE AS IT WAS -->
+      <div class="ref3-video-backdrop" aria-hidden="true">
+        <video class="ref3-bg-video-stream" autoplay loop muted playsinline>
+          <source src="assets/Untitled%20video%20(33).mp4" type="video/mp4">
+          <source src="assets/bg_custom_video.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-ref1-header">
+          <span class="section-ref1-subpill">Proven Track Record</span>
+          <h2 class="section-ref1-title">
+            Engineering High-Performance Systems with Precision Craftsmanship.
+          </h2>
+          <p class="section-ref1-desc">
+            From autonomous AI swarms to mission-critical distributed platforms, our engineering practice turns complex enterprise roadmaps into durable competitive advantage.
+          </p>
+        </div>
+      </div>
+
+      <!-- Split Two-Column Container inside max-width container -->
+      <div class="container ref3-showcase-container">
+          
+          <!-- Left Column: Static / Sticky Narrative -->
+          <aside class="ref3-sticky-narrative">
+            <div class="ref3-narrative-content">
+              <span class="ref3-badge-pill">SOLUTIONS</span>
+              <h3 class="ref3-narrative-title">Tailored for all business sizes.</h3>
+              <p class="ref3-narrative-desc">
+                Discover how our AI-powered architectures and distributed systems specifically accelerate your engineering roadmaps, infrastructure efficiency, and enterprise scale.
+              </p>
+
+              <!-- Stage Banner Callout -->
+              <div class="ref3-stage-banner">
+                <div class="ref3-banner-lead">Efficient. Scalable. Innovative.</div>
+                <p class="ref3-banner-sub">Engineered with zero technical debt by Ishvara Tech Consulting.</p>
+                <a href="#contact" class="ref3-banner-link">Let's Build Together &rarr;</a>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Right Column: Minimalist Moving / Scrolling Cards -->
+          <div class="ref3-feature-stack">
+            
+            <!-- Card 1: AI-Driven Agent Architectures -->
+            <article class="ref3-feature-card" data-category="ai">
+              <div class="ref3-card-top-row">
+                <span class="ref3-card-pill">01 / Autonomous Reasoning</span>
+                <span class="ref3-card-dot-badge">Live Ready</span>
+              </div>
+              <h4 class="ref3-card-heading">AI-Driven Agent Architectures</h4>
+              <p class="ref3-card-text">
+                We engineer deterministic multi-agent swarms with verifiable audit trails, domain-specific fine-tuning, and sub-second tool execution for round-the-clock operational autonomy.
+              </p>
+              
+              <!-- Interactive Telemetry Controller Widget (Reference Pin UI) -->
+              <div class="ref3-widget-box">
+                <div class="ref3-widget-header">
+                  <span class="ref3-widget-label">Model Telemetry</span>
+                  <span class="ref3-widget-meta">&lt; 14ms Latency</span>
+                </div>
+                <div class="ref3-slider-track">
+                  <div class="ref3-slider-fill" style="width: 88%;"></div>
+                  <div class="ref3-slider-thumb" style="left: 88%;"></div>
+                </div>
+                <div class="ref3-widget-footer">
+                  <span class="ref3-widget-tag">99.8% Precision</span>
+                  <span class="ref3-widget-tag">Autonomous Failover</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2: Distributed Microservices & Event Meshes -->
+            <article class="ref3-feature-card" data-category="engineering">
+              <div class="ref3-card-top-row">
+                <span class="ref3-card-pill">02 / Microsecond Latency</span>
+                <span class="ref3-card-dot-badge">High Concurrency</span>
+              </div>
+              <h4 class="ref3-card-heading">Distributed Microservices &amp; Event Meshes</h4>
+              <p class="ref3-card-text">
+                High-throughput cloud backends engineered on gRPC and event streams, delivering resilient throughput and automated failover mechanics across multi-region clusters.
+              </p>
+
+              <!-- Equalizer Throughput Waveform Widget (Reference Pin UI) -->
+              <div class="ref3-widget-box">
+                <div class="ref3-widget-header">
+                  <span class="ref3-widget-label">Throughput Equalizer</span>
+                  <span class="ref3-widget-meta">48,200 req/sec</span>
+                </div>
+                <div class="ref3-equalizer-bars">
+                  <span class="ref3-eq-bar" style="height: 40%;"></span>
+                  <span class="ref3-eq-bar" style="height: 75%;"></span>
+                  <span class="ref3-eq-bar" style="height: 95%;"></span>
+                  <span class="ref3-eq-bar" style="height: 60%;"></span>
+                  <span class="ref3-eq-bar" style="height: 85%;"></span>
+                  <span class="ref3-eq-bar" style="height: 100%;"></span>
+                  <span class="ref3-eq-bar" style="height: 70%;"></span>
+                  <span class="ref3-eq-bar" style="height: 90%;"></span>
+                  <span class="ref3-eq-bar" style="height: 50%;"></span>
+                  <span class="ref3-eq-bar" style="height: 80%;"></span>
+                </div>
+                <div class="ref3-widget-footer">
+                  <span class="ref3-widget-tag">12 Cluster Nodes In Sync</span>
+                  <span class="ref3-widget-tag">0.00% Packet Loss</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 3: Adaptive Scale & Topology (Signature Node Graph from Reference Pin) -->
+            <article class="ref3-feature-card" data-category="scale">
+              <div class="ref3-card-top-row">
+                <span class="ref3-card-pill">03 / Adaptive Scale</span>
+                <span class="ref3-card-dot-badge">Seamless Scale</span>
+              </div>
+              <h4 class="ref3-card-heading">Adaptive Infrastructure: Small to Large Enterprises</h4>
+              <p class="ref3-card-text">
+                Tailored infrastructure topologies that support rapid prototyping through hyper-growth scale without requiring architectural rewrites or emergency downtime.
+              </p>
+
+              <!-- Signature Node Graph (Exact Replica of Reference Video Frame 00:05) -->
+              <div class="ref3-widget-box ref3-node-widget">
+                <div class="ref3-node-diagram">
+                  <svg class="ref3-node-lines" viewBox="0 0 340 140" fill="none" preserveAspectRatio="none">
+                    <path d="M170 70 L60 30" stroke="rgba(37, 99, 235, 0.4)" stroke-width="2" stroke-dasharray="4 4" class="ref3-node-path"></path>
+                    <path d="M170 70 L280 30" stroke="rgba(37, 99, 235, 0.4)" stroke-width="2" stroke-dasharray="4 4" class="ref3-node-path"></path>
+                    <path d="M170 70 L60 110" stroke="rgba(37, 99, 235, 0.4)" stroke-width="2" stroke-dasharray="4 4" class="ref3-node-path"></path>
+                    <path d="M170 70 L280 110" stroke="rgba(37, 99, 235, 0.4)" stroke-width="2" stroke-dasharray="4 4" class="ref3-node-path"></path>
+                  </svg>
+                  
+                  <div class="ref3-node-center-hub" title="Ishvara Central Gateway">
+                    <span class="ref3-hub-plus">+</span>
+                  </div>
+
+                  <div class="ref3-sat-node ref3-sat-node-tl">AI Gateway</div>
+                  <div class="ref3-sat-node ref3-sat-node-tr">Vector DB</div>
+                  <div class="ref3-sat-node ref3-sat-node-bl">Cloud Mesh</div>
+                  <div class="ref3-sat-node ref3-sat-node-br">Edge Workers</div>
+                </div>
+                <div class="ref3-widget-footer">
+                  <span class="ref3-widget-tag">Unified Control Plane</span>
+                  <span class="ref3-widget-tag">Multi-Cloud Orchestration</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4 Impact Metrics Cards (Reference Video Frames 00:06-00:09) -->
+            <div class="ref3-metrics-grid">
+              <div class="ref3-metric-card ref3-metric-card-highlight">
+                <div class="ref3-metric-number">+48%</div>
+                <div class="ref3-metric-label">Conversion &amp; Velocity</div>
+                <div class="ref3-metric-sub">Continuous delivery pipeline optimization</div>
+              </div>
+              <div class="ref3-metric-card">
+                <div class="ref3-metric-number">-21%</div>
+                <div class="ref3-metric-label">Infrastructure OpEx</div>
+                <div class="ref3-metric-sub">Cloud resource &amp; inference efficiency</div>
+              </div>
+              <div class="ref3-metric-card">
+                <div class="ref3-metric-number">10K+</div>
+                <div class="ref3-metric-label">Production Deployments</div>
+                <div class="ref3-metric-sub">Zero unplanned downtime tolerance</div>
+              </div>
+              <div class="ref3-metric-card">
+                <div class="ref3-metric-number">21+</div>
+                <div class="ref3-metric-label">Enterprise Deliveries</div>
+                <div class="ref3-metric-sub">Production systems shipped globally</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      <div class="container">
+        <!-- Technology Ecosystem & Affiliations -->
+        <div class="ecosystem-ref1-strip">
+          <div class="ecosystem-ref1-title">Certified Ecosystem Partners &amp; Affiliations</div>
+          <div class="ecosystem-ref1-logos">
+            <span class="ecosystem-ref1-item">NASSCOM Certified</span>
+            <span class="ecosystem-ref1-item">STPI India</span>
+            <span class="ecosystem-ref1-item">AWS Partner Network</span>
+            <span class="ecosystem-ref1-item">Microsoft Azure</span>
+            <span class="ecosystem-ref1-item">Google Cloud Platform</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 3: STACKING CARDS SECTION (REACT COMPONENT)
+         - Built using React & CSS for Ishvara Tech Consulting
+         - Strict Monochromatic Solid Blue Palette:
+           Pure White #FFFFFF, Dark Navy #001A51, Dark Blue #053D58, Primary Blue #2563EB, Light Blue #BEE3FF, Very Light Blue #EFF7FF
+         - Zero Gradients | Solid Colors Only | Restrained Hover (~1.01 scale, 3-5px translation)
+         - 3 Cards: AI & Machine Learning, Product Engineering, Cloud & Infrastructure
+         - Scroll-driven sticky stacking sequence with progressive depth
+         ========================================================================== -->
+    <section class="stacking-section-ref2" id="solutions">
+      <div id="stacking-cards-root">
+        <!-- Server-side fallback container for instant paint and SEO -->
+        <div class="sc-section-root">
+          <div class="container">
+            <header class="sc-section-header">
+              <span class="sc-section-pill">Our Core Disciplines</span>
+              <h2 class="sc-section-title">
+                Intelligent Solutions Built for Growing Teams &amp; Enterprises.
+              </h2>
+              <p class="sc-section-subtitle">
+                We align architecture, speed, and intelligence into software foundations that scale gracefully without firefighting.
+              </p>
+            </header>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 4: REFERENCE 2 — GOOGLE REVIEWS & CLIENT FEEDBACK (EXACT    <!-- ==========================================================================
+         SECTION 4: CALENDLY-INSPIRED TESTIMONIAL CAROUSEL (EXACT REPLICA OF PIN)
+         Subtle Blue Gradient Background, Connected Pill Slices, Enterprise Stories
+         ========================================================================== -->
+    <section class="feedback-carousel-section" id="reviews">
+      <div class="feedback-bg-glow" aria-hidden="true"></div>
+      
+      <div class="container feedback-container">
+        <!-- Section Header -->
+        <div class="feedback-header">
+          <span class="feedback-badge">CUSTOMER STORIES</span>
+          <h2 class="feedback-title">Real customers. Real<br class="desktop-br"/> results.</h2>
+        </div>
+
+        <!-- Carousel Showcase Stage -->
+        <div class="feedback-showcase-stage" id="feedbackShowcaseStage">
+          <!-- Horizontal Connecting Line -->
+          <div class="feedback-connector-line" aria-hidden="true"></div>
+
+          <!-- Carousel Container (Holds Left Capsules, Active Center Card, Right Capsules) -->
+          <div class="feedback-carousel-track" id="feedbackCarouselTrack">
+            
+            <!-- Capsule -2 (Far Left Pill) -->
+            <button type="button" class="feedback-pill-slice slice-far-left" data-index="2" aria-label="View Story: Elena Lindqvist">
+              <img src="assets/feedback-story-3.jpg" alt="Client Story" class="slice-img" />
+            </button>
+
+            <!-- Capsule -1 (Near Left Pill) -->
+            <button type="button" class="feedback-pill-slice slice-near-left" data-index="1" aria-label="View Story: Marcus Davies">
+              <img src="assets/feedback-story-2.jpg" alt="Client Story" class="slice-img" />
+            </button>
+
+            <!-- Active Center Card (Card 0) -->
+            <div class="feedback-center-card" id="feedbackActiveCard">
+              <div class="feedback-card-grid">
+                <!-- Left Column: Metrics, Quote, Author -->
+                <div class="feedback-card-content">
+                  <div class="feedback-card-content-top">
+                    <h3 class="feedback-metric-headline" id="feedbackCardMetric">
+                      80% reduction in booking-related emails
+                    </h3>
+                    <blockquote class="feedback-quote-text" id="feedbackCardQuote">
+                      "We care deeply about the experience they have with us — and Ishvara helps us start it off right."
+                    </blockquote>
+                  </div>
+
+                  <div class="feedback-card-author">
+                    <span class="feedback-author-name" id="feedbackCardAuthor">Akira Bradley</span>
+                    <span class="feedback-author-role" id="feedbackCardRole">Co-Founder at Barking with the Bradley's</span>
+                  </div>
+                </div>
+
+                <!-- Right Column: Hero Image with Bottom Label -->
+                <div class="feedback-card-media">
+                  <img src="assets/feedback-story-1.jpg" alt="Client Case Study" class="feedback-hero-img" id="feedbackCardImage" />
+                  <div class="feedback-media-overlay">
+                    <span class="feedback-media-title" id="feedbackMediaTitle">Barking with the Bradley's</span>
+                    <span class="feedback-media-subtitle" id="feedbackMediaSubtitle">Where every pup is treated like King</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Capsule +1 (Near Right Pill) -->
+            <button type="button" class="feedback-pill-slice slice-near-right" data-index="3" aria-label="View Story: Sarah Jenkins">
+              <img src="assets/feedback-story-4.jpg" alt="Client Story" class="slice-img" />
+            </button>
+
+            <!-- Capsule +2 (Far Right Pill) -->
+            <button type="button" class="feedback-pill-slice slice-far-right" data-index="4" aria-label="View Story: Devendra Kulkarni">
+              <img src="assets/feedback-story-5.jpg" alt="Client Story" class="slice-img" />
+            </button>
+
+          </div>
+
+          <!-- Subtle Prev / Next Navigation Arrows for Desktop -->
+          <button type="button" class="feedback-nav-arrow arrow-prev" id="feedbackPrevBtn" aria-label="Previous customer story">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button type="button" class="feedback-nav-arrow arrow-next" id="feedbackNextBtn" aria-label="Next customer story">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Bottom Pagination Dots -->
+        <div class="feedback-pagination" id="feedbackPagination">
+          <button type="button" class="feedback-dot active" data-index="0" aria-label="Go to story 1"></button>
+          <button type="button" class="feedback-dot" data-index="1" aria-label="Go to story 2"></button>
+          <button type="button" class="feedback-dot" data-index="2" aria-label="Go to story 3"></button>
+          <button type="button" class="feedback-dot" data-index="3" aria-label="Go to story 4"></button>
+          <button type="button" class="feedback-dot" data-index="4" aria-label="Go to story 5"></button>
+        </div>
+
+        <!-- Verified Rating Trust Strip (Clean monochromatic Google proof pill) -->
+        <div class="feedback-trust-strip">
+          <div class="feedback-trust-pill">
+            <svg class="google-g-mini-icon" viewBox="0 0 24 24" width="16" height="16" fill="none">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#2563EB"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#001A51"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#053D58"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#2563EB"/>
+            </svg>
+            <span class="trust-stars">★★★★★</span>
+            <span class="trust-rating">5.0 Overall Rating</span>
+            <span class="trust-dot">•</span>
+            <span class="trust-count">48+ Verified Enterprise Reviews</span>
+          </div>
+        </div>
+
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 5: REFERENCE 2 — STRATEGIC IMPACT & ENTERPRISE FAQs (EXACT REPLICA)
+         ========================================================================== -->
+    <section class="faq-section-ref2" id="faq">
+      <div class="container">
+        <div class="faq-ref2-intro">
+          <span class="stacking-ref2-pill">Clarity &amp; Governance</span>
+          <h2 class="faq-ref2-title">Frequently Asked Questions</h2>
+          <p class="stacking-ref2-subtitle">
+            Everything you need to know about partnering with Ishvara Tech Consulting.
+          </p>
+        </div>
+
+        <div class="faq-accordion-group">
+          <div class="faq-accordion-item open">
+            <button class="faq-question-btn" type="button">
+              <span>How does Ishvara integrate AI into established enterprise workflows?</span>
+              <svg class="faq-icon-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer-panel">
+              <p>
+                We conduct an architectural audit to isolate high-value automation targets. We deploy isolated, verifiable agentic pipelines with human-in-the-loop oversight, strict data segregation, and custom evaluation harnesses to guarantee deterministic reliability.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-accordion-item">
+            <button class="faq-question-btn" type="button">
+              <span>What is your typical project engagement model and sprint velocity?</span>
+              <svg class="faq-icon-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer-panel">
+              <p>
+                We operate in dedicated senior engineering pods with two-week agile sprint cadences. Engagements begin with a 2-week architectural spike and prototype, followed by iterative production releases with continuous telemetry and testing.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-accordion-item">
+            <button class="faq-question-btn" type="button">
+              <span>How do you guarantee enterprise IP security and data privacy?</span>
+              <svg class="faq-icon-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer-panel">
+              <p>
+                All code, models, and infrastructure belong 100% to our clients. We build inside your dedicated cloud VPC (AWS, Azure, or GCP). Sensitive training data never touches shared public APIs, and all pipelines adhere to SOC2 and ISO 27001 compliance standards.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-accordion-item">
+            <button class="faq-question-btn" type="button">
+              <span>Can your architects modernize legacy software without operational disruption?</span>
+              <svg class="faq-icon-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer-panel">
+              <p>
+                Yes. We specialize in incremental modernization using event-driven architectures and the Strangler Fig pattern. High-volume business transactions remain online while background services are systematically migrated to resilient cloud-native components.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 6: REFERENCE 2 — PRE-FOOTER CTA BANNER (EXACT REPLICA)
+         ========================================================================== -->
+    <section class="cta-banner-ref2" id="contact">
+      <div class="container">
+        <div class="cta-box-ref2">
+          <h2 class="cta-box-title">Ready to Engineer What Comes Next?</h2>
+          <p class="cta-box-desc">
+            Schedule a confidential 30-minute technical roadmap discovery session with our senior architects to evaluate your architecture, AI readiness, and engineering velocity.
+          </p>
+
+          <div class="cta-box-actions">
+            <button class="btn-cta-ref2-primary" id="openConsultModalBtn" type="button">
+              <span>Schedule Discovery Call</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+            <a href="mailto:contact@ishvaratechconsulting.com" class="btn-cta-ref2-secondary">
+              <span>Email Technical Team</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       REFERENCE 2: Modern Monochromatic Blue Footer
+       ========================================================================== -->
+  <footer class="site-footer-ref2">
+    <div class="container">
+      <div class="footer-grid-ref2">
+        <div class="footer-brand-info">
+          <img src="assets/ishvara-logo-light.png" alt="Ishvara Tech Consulting" class="footer-logo-img">
+          <p class="footer-brand-desc">
+            We build what comes next. High-performance IT consulting, intelligent digital products, and resilient enterprise cloud architectures.
+          </p>
+          <div class="footer-certifications">
+            <span class="cert-badge">NASSCOM Member</span>
+            <span class="cert-badge">STPI Registered</span>
+            <span class="cert-badge">AWS Partner</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="#solutions">AI-Powered Solutions</a></li>
+            <li><a href="#solutions">Digital Product Engineering</a></li>
+            <li><a href="#solutions">Cloud &amp; Automation</a></li>
+            <li><a href="#capabilities">Microservices &amp; APIs</a></li>
+            <li><a href="#capabilities">Zero-Trust Security</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Ecosystem</h4>
+          <ul class="footer-links-list">
+            <li><a href="#capabilities">AWS Cloud Architecture</a></li>
+            <li><a href="#capabilities">Microsoft Azure</a></li>
+            <li><a href="#capabilities">Google Cloud Platform</a></li>
+            <li><a href="#reviews">Verified Client Proof</a></li>
+            <li><a href="#faq">Engineering FAQs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links-list">
+            <li><a href="#hero">About Ishvara</a></li>
+            <li><a href="#solutions">Featured Solutions</a></li>
+            <li><a href="#reviews">Google Reviews (5.0★)</a></li>
+            <li><a href="#contact">Book Consultation</a></li>
+            <li><a href="mailto:contact@ishvaratechconsulting.com">contact@ishvaratechconsulting.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-ref2">
+        <div>
+          &copy; 2026 Ishvara Tech Consulting. All rights reserved. Monochromatic Blue Architecture.
+        </div>
+        <div class="footer-social-links">
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-social-link">LinkedIn</a>
+          <a href="https://x.com" target="_blank" rel="noopener" class="footer-social-link">Twitter / X</a>
+          <a href="https://github.com" target="_blank" rel="noopener" class="footer-social-link">GitHub</a>
+          <a href="https://maps.google.com" target="_blank" rel="noopener" class="footer-social-link">Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       REFERENCE 2: Persistent Bottom Floating Status Pill
+       ========================================================================== -->
+  <div class="bottom-floating-bar" id="bottomFloatingBar">
+    <span class="bottom-tagline">Book a free discovery call</span>
+    
+    <div class="bottom-actions">
+      <a href="#contact" class="btn-pill-cta-bottom" id="bottomCallBtn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Book a Call</span>
+      </a>
+
+      <div class="bottom-live-meta">
+        <span class="live-pulse-dot"></span>
+        <span id="liveClockDisplay">Bengaluru, India • 11:45 AM</span>
+      </div>
+    </div>
   </div>
 
-  <!-- =========================================================================
-       EDITORIAL SCROLL HUD
-       ========================================================================= -->
-  <aside class="scroll-hud" aria-label="Scroll Progress Indicator">
-    <div class="hud-pips-group">
-      <span class="hud-pip active" data-stage="0"></span>
-      <span class="hud-pip" data-stage="1"></span>
-      <span class="hud-pip" data-stage="2"></span>
-      <span class="hud-pip" data-stage="3"></span>
-      <span class="hud-pip" data-stage="4"></span>
-      <span class="hud-pip" data-stage="5"></span>
-    </div>
-    <span class="hud-frame-readout" id="hudFrameReadout">001 // 211</span>
-  </aside>
+  <!-- ==========================================================================
+       Discovery Call Modal (Interactive)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="consultModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Modal" type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
 
-  <!-- =========================================================================
-       SCROLL-LINKED STORYTELLING STAGES
-       ========================================================================= -->
+      <h3 class="modal-title" id="modalTitle">Let's Build Together</h3>
+      <p class="modal-subtitle">
+        Schedule your 30-minute technical roadmap evaluation with Ishvara Tech Consulting.
+      </p>
 
-  <!-- STAGE 1 — HERO SECTION -->
-  <section class="story-stage active" id="stage-hero" aria-label="Hero">
-    <div class="editorial-container hero-layout">
-      
-      <!-- Top Subtle Glass Tagline -->
-      <div class="hero-top-meta">
-        <span class="editorial-eyebrow">CREATIVE TECHNOLOGY STUDIO</span>
-        <span class="meta-divider">—</span>
-        <span class="meta-sub">AI &amp; DIGITAL PRODUCT ENGINEERING</span>
-      </div>
-
-      <!-- Center-Left Large Editorial Headline -->
-      <div class="hero-center-content">
-        <h1 class="editorial-hero-title">
-          We build what<br>
-          <em>comes next.</em>
-        </h1>
-        
-        <p class="editorial-hero-lead">
-          We turn complex challenges into intelligent products and meaningful digital experiences.
-        </p>
-
-        <!-- Two Restrained Text Links -->
-        <div class="editorial-hero-actions">
-          <a href="#stage-products" class="editorial-link-btn primary-link">
-            <span>Explore our work</span>
-            <span class="link-arrow">↗</span>
-          </a>
-          <button class="editorial-link-btn secondary-link open-modal-trigger">
-            <span>Start a conversation</span>
-            <span class="link-arrow">↗</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Bottom Bar: Left Editorial Note & Right Circular "Discover" Element -->
-      <div class="hero-bottom-bar">
-        <div class="hero-editorial-badge">
-          <span class="badge-index">01 // PROLOGUE</span>
-          <p class="badge-copy">
-            A quiet synthesis of strategic intuition, advanced intelligence, and precision engineering.
-          </p>
-        </div>
-
-        <!-- Delicately styled Circular Glass Prompt inspired by Reference 2 -->
-        <a href="#stage-philosophy" class="hero-discover-circle" aria-label="Scroll to discover">
-          <div class="discover-inner">
-            <span class="discover-text">Discover</span>
-            <span class="discover-arrow">↓</span>
-          </div>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- STAGE 2 — PHILOSOPHY SECTION -->
-  <section class="story-stage" id="stage-philosophy" aria-label="Our Philosophy">
-    <div class="editorial-container">
-      <div class="editorial-glass-panel philosophy-panel">
-        
-        <div class="panel-header-row">
-          <span class="editorial-eyebrow">PHILOSOPHY</span>
-          <span class="panel-numeric">02 / 06</span>
-        </div>
-
-        <h2 class="editorial-section-title">
-          The future doesn't<br>
-          <em>build itself.</em>
-        </h2>
-
-        <div class="philosophy-content-split">
-          <div class="lead-column">
-            <p class="editorial-body-large">
-              Businesses face complex challenges, disconnected systems, and technology that struggles to keep pace with change.
-            </p>
-          </div>
-          <div class="support-column">
-            <p class="editorial-body-muted">
-              We help turn uncertainty into direction, ideas into products, and emerging technologies into solutions people can actually use.
-            </p>
-            <p class="editorial-body-highlight">
-              The best technology does more than solve a problem. It creates clarity, unlocks opportunities, and makes meaningful progress possible.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- STAGE 3 — CAPABILITIES SECTION -->
-  <section class="story-stage" id="stage-capabilities" aria-label="Our Capabilities">
-    <div class="editorial-container">
-      
-      <!-- Section Header -->
-      <div class="editorial-stage-heading">
-        <div class="heading-meta">
-          <span class="editorial-eyebrow">CAPABILITIES</span>
-          <span class="panel-numeric">03 / 06</span>
-        </div>
-        <h2 class="editorial-section-title">
-          From complexity <em>to clarity.</em>
-        </h2>
-      </div>
-
-      <!-- Refined 4-Column Editorial Glass Layout -->
-      <div class="editorial-capabilities-grid">
-        
-        <!-- 01 AI -->
-        <div class="capability-column">
-          <div class="cap-num">01</div>
-          <h3 class="cap-name">Artificial Intelligence</h3>
-          <p class="cap-summary">
-            Build intelligent workflows, AI-powered applications, and practical automation that helps businesses work smarter.
-          </p>
-          <div class="cap-footprint">Machine Learning · Agentic AI · LLMs</div>
-        </div>
-
-        <!-- 02 Products -->
-        <div class="capability-column">
-          <div class="cap-num">02</div>
-          <h3 class="cap-name">Digital Products &amp; SaaS</h3>
-          <p class="cap-summary">
-            Turn ideas into intuitive, scalable digital products designed around real user and business needs.
-          </p>
-          <div class="cap-footprint">Product Design · Architecture · Cloud</div>
-        </div>
-
-        <!-- 03 Enterprise -->
-        <div class="capability-column">
-          <div class="cap-num">03</div>
-          <h3 class="cap-name">Enterprise Solutions</h3>
-          <p class="cap-summary">
-            Simplify complex operations through connected platforms, structured workflows, and integrated systems.
-          </p>
-          <div class="cap-footprint">Integration · Scalability · Modernization</div>
-        </div>
-
-        <!-- 04 Consulting -->
-        <div class="capability-column">
-          <div class="cap-num">04</div>
-          <h3 class="cap-name">Technology Consulting</h3>
-          <p class="cap-summary">
-            Align business goals, product strategy, and technology decisions to create a stronger foundation for growth.
-          </p>
-          <div class="cap-footprint">Strategy · Roadmap · Advisory</div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- STAGE 4 — PRODUCTS SECTION (COMPLETELY REDESIGNED EDITORIAL GLASS) -->
-  <section class="story-stage" id="stage-products" aria-label="Our Products">
-    <div class="editorial-container">
-      
-      <!-- Section Header -->
-      <div class="editorial-stage-heading">
-        <div class="heading-meta">
-          <span class="editorial-eyebrow">IDEAS IN ACTION</span>
-          <span class="panel-numeric">04 / 06</span>
-        </div>
-        <h2 class="editorial-section-title">
-          Technology built for the <em>real world.</em>
-        </h2>
-        <p class="editorial-section-subtitle">
-          We build technology that moves beyond concepts into practical applications.
-        </p>
-      </div>
-
-      <!-- Refined Horizontal Editorial Product Rows / Grid with Generous Spacing -->
-      <div class="editorial-products-container">
-        
-        <!-- Product 1: IRMA Engine -->
-        <a href="https://irmaengine.ai/" target="_blank" rel="noopener noreferrer" class="editorial-product-strip">
-          <div class="product-index-badge">01</div>
-          <div class="product-main-meta">
-            <h3 class="product-title">IRMA Engine</h3>
-            <span class="product-category">MARKETING INTELLIGENCE</span>
-          </div>
-          <p class="product-desc">
-            AI-powered marketing intelligence and campaign execution.
-          </p>
-          <div class="product-link-pill">
-            <span>irmaengine.ai</span>
-            <span class="arrow">↗</span>
-          </div>
-        </a>
-
-        <!-- Product 2: HireMitra AI -->
-        <a href="https://hiremitra.ai/" target="_blank" rel="noopener noreferrer" class="editorial-product-strip">
-          <div class="product-index-badge">02</div>
-          <div class="product-main-meta">
-            <h3 class="product-title">HireMitra AI</h3>
-            <span class="product-category">TALENT DISCOVERY</span>
-          </div>
-          <p class="product-desc">
-            Intelligent hiring experiences that connect talent and opportunities.
-          </p>
-          <div class="product-link-pill">
-            <span>hiremitra.ai</span>
-            <span class="arrow">↗</span>
-          </div>
-        </a>
-
-        <!-- Product 3: ECSE -->
-        <a href="https://ecse.in/index.html" target="_blank" rel="noopener noreferrer" class="editorial-product-strip">
-          <div class="product-index-badge">03</div>
-          <div class="product-main-meta">
-            <h3 class="product-title">ECSE</h3>
-            <span class="product-category">INSTITUTIONAL TECH</span>
-          </div>
-          <p class="product-desc">
-            Connected school management technology designed to support institutional excellence.
-          </p>
-          <div class="product-link-pill">
-            <span>ecse.in</span>
-            <span class="arrow">↗</span>
-          </div>
-        </a>
-
-        <!-- Product 4: Mitraverse AI -->
-        <a href="https://mitram.ai/" target="_blank" rel="noopener noreferrer" class="editorial-product-strip">
-          <div class="product-index-badge">04</div>
-          <div class="product-main-meta">
-            <h3 class="product-title">Mitraverse AI</h3>
-            <span class="product-category">ACCESSIBLE AI</span>
-          </div>
-          <p class="product-desc">
-            AI-powered experiences built around more accessible and useful intelligence.
-          </p>
-          <div class="product-link-pill">
-            <span>mitram.ai</span>
-            <span class="arrow">↗</span>
-          </div>
-        </a>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- STAGE 5 — APPROACH SECTION -->
-  <section class="story-stage" id="stage-approach" aria-label="Our Approach">
-    <div class="editorial-container">
-      
-      <div class="editorial-stage-heading">
-        <div class="heading-meta">
-          <span class="editorial-eyebrow">HOW WE WORK</span>
-          <span class="panel-numeric">05 / 06</span>
-        </div>
-        <h2 class="editorial-section-title">
-          Built with purpose. <em>Designed for impact.</em>
-        </h2>
-      </div>
-
-      <!-- Linear Step Flow with Hairline Connectors -->
-      <div class="editorial-approach-grid">
-        
-        <div class="approach-item">
-          <div class="approach-header">
-            <span class="approach-num">01</span>
-            <span class="approach-dot"></span>
-          </div>
-          <h3 class="approach-label">Understand</h3>
-          <p class="approach-body">
-            We listen, investigate, and identify the challenges that matter most.
-          </p>
-        </div>
-
-        <div class="approach-item">
-          <div class="approach-header">
-            <span class="approach-num">02</span>
-            <span class="approach-dot"></span>
-          </div>
-          <h3 class="approach-label">Strategize</h3>
-          <p class="approach-body">
-            We define the right direction, technology, and architectural roadmap.
-          </p>
-        </div>
-
-        <div class="approach-item">
-          <div class="approach-header">
-            <span class="approach-num">03</span>
-            <span class="approach-dot"></span>
-          </div>
-          <h3 class="approach-label">Build</h3>
-          <p class="approach-body">
-            We design and engineer purposeful, scalable solutions with craftsmanship.
-          </p>
-        </div>
-
-        <div class="approach-item">
-          <div class="approach-header">
-            <span class="approach-num">04</span>
-            <span class="approach-dot"></span>
-          </div>
-          <h3 class="approach-label">Evolve</h3>
-          <p class="approach-body">
-            We refine, optimize, and help solutions grow with your business over time.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- STAGE 6 — FINAL CALL TO ACTION & FOOTER -->
-  <section class="story-stage" id="stage-final-cta" aria-label="Final Call to Action">
-    <div class="editorial-container final-stage-wrap">
-      
-      <div class="editorial-glass-panel final-cta-panel">
-        <div class="panel-header-row">
-          <span class="editorial-eyebrow">START YOUR JOURNEY</span>
-          <span class="panel-numeric">06 / 06</span>
-        </div>
-
-        <h2 class="editorial-cta-headline">
-          The next chapter<br>
-          <em>starts here.</em>
-        </h2>
-
-        <p class="editorial-cta-desc">
-          Have a complex challenge, a bold idea, or a product waiting to be built?<br>
-          Let's turn what's possible into something real.
-        </p>
-
-        <div class="editorial-hero-actions" style="margin-top: 2rem;">
-          <button class="editorial-link-btn primary-link open-modal-trigger">
-            <span>Start a conversation</span>
-            <span class="link-arrow">↗</span>
-          </button>
-          <a href="#stage-products" class="editorial-link-btn secondary-link">
-            <span>Explore our work</span>
-            <span class="link-arrow">↗</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Minimal Editorial Studio Footer -->
-      <footer class="editorial-footer">
-        <div class="footer-col-brand">
-          <img src="assets/ishvara-logo.png" alt="Ishvara Tech Consulting" class="footer-brand-logo">
-          <span class="footer-tagline">We build what comes next.</span>
-        </div>
-
-        <ul class="footer-nav">
-          <li><a href="#stage-hero">Home</a></li>
-          <li><a href="#stage-philosophy">Philosophy</a></li>
-          <li><a href="#stage-capabilities">Capabilities</a></li>
-          <li><a href="#stage-products">Products</a></li>
-          <li><a href="#stage-approach">Approach</a></li>
-          <li><a href="#contact" class="open-modal-trigger">Contact</a></li>
-        </ul>
-
-        <div class="footer-col-copy">
-          <span>© 2026 Ishvara Tech Consulting. All rights reserved.</span>
-        </div>
-      </footer>
-
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       INQUIRY & CONTACT MODAL (REFINED GLASS)
-       ========================================================================= -->
-  <div class="contact-modal" id="contactModal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-glass-card">
-      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
-      
-      <div class="modal-header">
-        <span class="editorial-eyebrow">INITIATE DIALOGUE</span>
-        <h3 class="modal-title">Let's build <em>what comes next.</em></h3>
-        <p class="modal-desc">
-          Share your vision with our principal consultants and technical architects.
-        </p>
-      </div>
-
-      <form id="contactForm" class="modal-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="formName" class="form-label">Name</label>
-            <input type="text" id="formName" class="form-input" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <label for="formEmail" class="form-label">Email</label>
-            <input type="email" id="formEmail" class="form-input" placeholder="name@company.com" required>
-          </div>
+      <form class="modal-form" id="consultForm">
+        <div class="form-group">
+          <label class="form-label" for="userName">Full Name *</label>
+          <input type="text" id="userName" class="form-input" placeholder="Your Full Name" required>
         </div>
 
         <div class="form-group">
-          <label for="formCompany" class="form-label">Company / Organization</label>
-          <input type="text" id="formCompany" class="form-input" placeholder="Company Name" required>
+          <label class="form-label" for="userEmail">Work Email *</label>
+          <input type="email" id="userEmail" class="form-input" placeholder="you@company.com" required>
         </div>
 
         <div class="form-group">
-          <label for="formMsg" class="form-label">Project Scope</label>
-          <textarea id="formMsg" class="form-input" rows="3" placeholder="Tell us about your challenge, product vision, or strategic goals..." required></textarea>
+          <label class="form-label" for="serviceInterest">Area of Focus *</label>
+          <select id="serviceInterest" class="form-select" required>
+            <option value="ai">AI-Powered Solutions &amp; Agents</option>
+            <option value="engineering">Digital Product Engineering</option>
+            <option value="cloud">Cloud &amp; Intelligent Automation</option>
+            <option value="modernization">Legacy System Modernization</option>
+          </select>
         </div>
 
-        <button type="submit" class="modal-submit-btn">
-          <span>Send Transmission</span>
-          <span>↗</span>
-        </button>
+        <div class="form-group">
+          <label class="form-label" for="projectScope">Brief Project Overview</label>
+          <textarea id="projectScope" class="form-textarea" rows="3" placeholder="Tell us about your technical timeline or roadmap objectives..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-form-submit" id="submitFormBtn">Confirm Discovery Session &rarr;</button>
       </form>
     </div>
   </div>
 
-  <!-- Scroll Spacing Container for 211 Frames -->
-  <div class="scroll-container" aria-hidden="true"></div>
-
+  <!-- Scripts -->
+  <script src="assets/react.min.js"></script>
+  <script src="assets/react-dom.min.js"></script>
+  <script src="components/StackingCardsSection.js"></script>
   <script src="audio.js"></script>
   <script src="main.js"></script>
 </body>

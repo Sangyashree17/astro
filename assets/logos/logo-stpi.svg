@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 40" width="130" height="40" fill="none">
+  <!-- STPI Emblem -->
+  <g transform="translate(6, 4)">
+    <circle cx="16" cy="16" r="15" fill="#0A3A82"/>
+    <circle cx="16" cy="16" r="12" fill="#FFFFFF"/>
+    <circle cx="16" cy="16" r="9" fill="#0A3A82"/>
+    <path d="M 16 7 C 22 12 22 20 16 24 C 12 20 12 13 16 7 Z" fill="#F26522"/>
+    <circle cx="16" cy="16" r="2.8" fill="#FFFFFF"/>
+  </g>
+  
+  <!-- "STPI" Typography -->
+  <text x="44" y="27" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="21" font-weight="900" fill="#001A51" letter-spacing="1.2">STPI</text>
+</svg>

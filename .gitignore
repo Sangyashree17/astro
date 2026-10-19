@@ -1,1 +1,10 @@
 .vercel
+ref*.mp4
+ref*.jpg
+ref*.png
+scripts/check_*.js
+scripts/download_*.js
+scripts/extract_*.js
+scripts/parse_*.js
+scripts/probe_*.js
+scripts/test_*.html
